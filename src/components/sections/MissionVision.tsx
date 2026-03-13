@@ -20,16 +20,19 @@ const blocks = [
 
 export default function MissionVision() {
   return (
-    <section id="about" className="py-32 bg-[#F8F9FA] border-b border-slate-100">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-32 bg-background relative overflow-hidden">
+      {/* Accent Glow */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {blocks.map((block, idx) => (
-            <div key={idx} className="flex flex-col items-start space-y-6 group">
-              <div className="text-[#1B365D] bg-white p-5 rounded-2xl shadow-sm border border-slate-100 group-hover:bg-[#1B365D] group-hover:text-white transition-all duration-500 group-hover:-translate-y-2">
+            <div key={idx} className="flex flex-col items-start space-y-6 group p-8 rounded-3xl bg-card/20 border border-primary/10 hover:border-primary/30 transition-all duration-500">
+              <div className="text-primary bg-primary/10 p-5 rounded-2xl border border-primary/20 group-hover:bg-primary group-hover:text-background transition-all duration-500">
                 {block.icon}
               </div>
-              <h3 className="text-3xl font-bold font-headline text-[#1B365D] border-b-2 border-[#1B365D]/10 pb-2 w-full">{block.title}</h3>
-              <p className="text-[#5E7D9A] text-lg leading-relaxed font-medium">{block.desc}</p>
+              <h3 className="text-3xl font-bold font-headline text-white border-b-2 border-primary/10 pb-2 w-full group-hover:border-primary/50 transition-colors">{block.title}</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed font-medium">{block.desc}</p>
             </div>
           ))}
         </div>

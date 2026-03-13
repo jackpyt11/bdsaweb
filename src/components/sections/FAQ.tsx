@@ -28,20 +28,20 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-card/50">
+    <section id="faq" className="py-24 bg-background">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold font-headline mb-4">সচরাচর জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</h2>
+          <h2 className="text-4xl font-bold font-headline mb-4 text-white">সচরাচর জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</h2>
           <p className="text-muted-foreground">আমাদের সিস্টেম এবং পরিষেবা সম্পর্কে সাধারণ জিজ্ঞাসা।</p>
         </div>
 
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, idx) => (
-            <AccordionItem key={idx} value={`item-${idx}`} className="border-border">
-              <AccordionTrigger className="text-left font-bold text-lg hover:text-primary py-6">
+            <AccordionItem key={idx} value={`item-${idx}`} className="border-primary/10">
+              <AccordionTrigger className="text-left font-bold text-lg text-white hover:text-primary py-6 transition-colors">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed bg-primary/5 p-4 rounded-xl border border-primary/5 mb-4">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>
