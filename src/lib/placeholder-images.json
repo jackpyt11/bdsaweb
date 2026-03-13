@@ -41,6 +41,24 @@
       "description": "Lt. Col S. Mahmud - Operations",
       "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773436995/LT_CORNELMAHABUB_nwcta2.png",
       "imageHint": "Operations Strategist portrait"
+    },
+    {
+      "id": "news-iso",
+      "description": "ISO Certification News",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773437776/01_fdktkw.png",
+      "imageHint": "cyber security news"
+    },
+    {
+      "id": "news-bank",
+      "description": "Bank Integration News",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773437776/02_nlxk7e.png",
+      "imageHint": "bank integration news"
+    },
+    {
+      "id": "news-summit",
+      "description": "Digital Summit News",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773437776/03_sj3edk.png",
+      "imageHint": "digital summit news"
     }
   ]
 }
