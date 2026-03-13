@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -18,23 +17,23 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-[#1E4069] text-white">
-      <div className="container flex h-20 items-center justify-between mx-auto px-4">
+      <div className="container flex h-16 items-center justify-between mx-auto px-4">
         <div className="flex items-center gap-2">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-accent bg-accent/10">
-            <span className="text-xl font-bold text-accent font-headline">BDSA</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent bg-accent/10">
+            <span className="text-sm font-bold text-accent font-headline">BDSA</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tighter font-headline">BDSA</span>
-            <span className="text-[10px] uppercase text-slate-300 tracking-widest font-bold">Authority Hub</span>
+            <span className="text-base font-bold tracking-tighter font-headline leading-tight">BDSA</span>
+            <span className="text-[8px] uppercase text-slate-300 tracking-widest font-bold">Authority Hub</span>
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-slate-200 hover:text-accent transition-colors"
+              className="text-xs font-medium text-slate-200 hover:text-accent transition-colors"
             >
               {item.name}
             </Link>
@@ -43,10 +42,11 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <Button 
-            className="hidden sm:flex bg-primary hover:bg-primary/90 text-white font-bold border border-slate-400"
+            size="sm"
+            className="hidden sm:flex bg-primary hover:bg-primary/90 text-white font-bold border border-slate-400 h-8 px-3 text-[11px]"
           >
-            <ShieldCheck className="w-4 h-4 mr-2" />
-            Verify Certificate/ID
+            <ShieldCheck className="w-3.5 h-3.5 mr-1.5" />
+            Verify Certificate
           </Button>
         </div>
       </div>
