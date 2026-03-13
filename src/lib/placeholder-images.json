@@ -13,6 +13,12 @@
       "imageHint": "Bangladesh flag"
     },
     {
+      "id": "bd-favicon",
+      "description": "Government System Authority Favicon",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773429994/fevicon_icon_vz966f.png",
+      "imageHint": "authority favicon"
+    },
+    {
       "id": "hero-bg",
       "description": "Technological network background",
       "imageUrl": "https://picsum.photos/seed/tech/1920/1080",
