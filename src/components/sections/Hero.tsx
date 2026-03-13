@@ -1,12 +1,22 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Sparkles, FileText, ArrowRight } from 'lucide-react';
+import { Sparkles, FileText, ArrowRight, User } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from '@/components/ui/input';
 
 export default function Hero() {
   const heroBg = PlaceHolderImages.find(img => img.id === 'hero-bg');
+  const [userName, setUserName] = useState('');
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20 pb-24">
@@ -52,16 +62,52 @@ export default function Hero() {
 
         {/* Cyber Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-700">
-          <Button 
-            size="lg" 
-            className="min-w-[200px] h-14 bg-primary text-primary-foreground font-bold rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] hover:scale-105 transition-all group"
-          >
-            <Sparkles className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform" /> প্রোফাইল দেখুন
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button 
+                size="lg" 
+                className="min-w-[200px] h-14 bg-primary text-primary-foreground font-bold rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] hover:scale-105 transition-all group"
+              >
+                <Sparkles className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform" /> প্রোফাইল দেখুন
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="bg-card border-primary/20 sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle className="text-primary font-headline flex items-center gap-2">
+                  <User className="w-5 h-5" /> ব্যবহারকারীর প্রোফাইল তথ্য
+                </DialogTitle>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground">আপনার নাম বা আইডি প্রদান করুন:</p>
+                  <Input
+                    id="name"
+                    placeholder="ব্যবহারকারীর নাম লিখুন..."
+                    className="bg-background/50 border-primary/20 text-white"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                  />
+                </div>
+                {userName && (
+                  <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 mt-2">
+                    <p className="text-xs text-primary font-bold uppercase tracking-widest mb-1">বর্তমান প্রোফাইল</p>
+                    <p className="text-xl font-bold text-white">{userName}</p>
+                    <p className="text-[10px] text-muted-foreground mt-2">স্ট্যাটাস: সক্রিয় (Active)</p>
+                  </div>
+                )}
+                <Button className="w-full bg-primary text-background font-bold">প্রবেশ করুন</Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+
           <Button 
             size="lg" 
             variant="outline" 
             className="min-w-[200px] h-14 border-primary/30 text-white hover:bg-primary/5 hover:border-primary rounded-xl transition-all group"
+            onClick={() => {
+              const section = document.getElementById('notice');
+              if (section) section.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
             <FileText className="mr-2 w-5 h-5" /> সর্বশেষ নোটিশ <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
