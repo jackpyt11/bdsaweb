@@ -1,48 +1,75 @@
-import Image from 'next/image';
+'use client';
+
 import { Button } from '@/components/ui/button';
-import { ArrowRight, FileText, User } from 'lucide-react';
+import { Sparkles, FileText, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Hero() {
+  const heroBg = PlaceHolderImages.find(img => img.id === 'hero-bg');
+
   return (
-    <section className="relative overflow-hidden pt-20 pb-24 lg:pt-32 lg:pb-40 bg-background">
-      {/* High-Tech Background Background */}
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20 pb-24">
+      {/* Background with Cyber Effect */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.05)_1.5px,transparent_1.5px),linear-gradient(90deg,rgba(0,255,255,0.05)_1.5px,transparent_1.5px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+        {heroBg && (
+          <Image
+            src={heroBg.imageUrl}
+            alt="Cyber Background"
+            fill
+            priority
+            className="object-cover opacity-20 scale-110 animate-pulse"
+            style={{ filter: 'hue-rotate(180deg)' }}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,255,0.05)_0%,transparent_70%)]"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary mb-8 neon-border">
-          <span className="relative flex h-2 w-2">
+        {/* Authority Badge */}
+        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[10px] font-bold text-primary mb-8 animate-in fade-in slide-in-from-top-4 duration-1000 uppercase tracking-widest">
+          <div className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
-          </span>
-          অফিশিয়াল অনুমোদিত সংস্থা
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_#00E5FF]"></span>
+          </div>
+          গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত
         </div>
-        
-        <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight font-headline sm:text-6xl mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out fill-mode-both leading-[1.2]">
-          <span className="block font-light text-foreground mb-2">
+
+        {/* Headlines with Font Mixing and Neon Glow */}
+        <div className="max-w-4xl mx-auto space-y-4 mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <h1 className="text-4xl md:text-6xl font-medium font-headline text-white tracking-tight leading-tight">
             বাংলাদেশে ডিজিটাল
-          </span>
-          <span className="block font-black text-primary neon-glow">
+          </h1>
+          <h2 className="text-5xl md:text-7xl font-black font-headline text-primary drop-shadow-[0_0_15px_rgba(0,229,255,0.5)] tracking-tighter leading-none">
             অবকাঠামোর ভবিষ্যৎ নির্মাণ
-          </span>
-        </h1>
-        
-        <p className="mx-auto max-w-2xl text-lg text-foreground/70 mb-10 animate-in fade-in slide-in-from-bottom-10 delay-200 duration-1000 fill-mode-both font-medium">
-          বাংলাদেশ ডিজিটাল সিস্টেম অথরিটি (BDSA) জাতীয় পরিচয় যাচাইকরণ এবং সিস্টেম ব্যবস্থাপনার জন্য একটি নিরাপদ, স্বচ্ছ এবং আধুনিক ফ্রেমওয়ার্ক নিশ্চিত করে।
+          </h2>
+        </div>
+
+        <p className="mx-auto max-w-2xl text-lg text-muted-foreground/80 mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500 leading-relaxed">
+          বাংলাদেশ ডিজিটাল সিস্টেম অথরিটি (বিডিএসএ) নিশ্চিত করছে একটি সুরক্ষিত, স্বচ্ছ এবং আধুনিক জাতীয় পরিচয় যাচাইকরণ ফ্রেমওয়ার্ক।
         </p>
-        
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-12 delay-500 duration-1000 fill-mode-both">
-          <Button size="lg" className="min-w-[180px] font-bold bg-primary text-background hover:bg-primary/80 neon-button">
-            <User className="mr-2 h-4 w-4" /> প্রোফাইল দেখুন
+
+        {/* Cyber Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-700">
+          <Button 
+            size="lg" 
+            className="min-w-[200px] h-14 bg-primary text-primary-foreground font-bold rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] hover:scale-105 transition-all group"
+          >
+            <Sparkles className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform" /> প্রোফাইল দেখুন
           </Button>
-          <Button size="lg" variant="outline" className="min-w-[180px] border-primary/40 text-primary hover:bg-primary/10 transition-all group font-bold">
-            <FileText className="mr-2 h-4 w-4" /> সর্বশেষ নোটিশ
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="min-w-[200px] h-14 border-primary/30 text-white hover:bg-primary/5 hover:border-primary rounded-xl transition-all group"
+          >
+            <FileText className="mr-2 w-5 h-5" /> সর্বশেষ নোটিশ <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
       </div>
+
+      {/* Decorative Cyber Lines */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent shadow-[0_0_10px_#00E5FF]"></div>
     </section>
   );
 }

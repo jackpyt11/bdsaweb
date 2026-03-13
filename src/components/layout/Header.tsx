@@ -1,59 +1,59 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Header() {
-  const navItems = [
-    { name: 'হোম', href: '/' },
-    { name: 'আমাদের সম্পর্কে', href: '#about' },
-    { name: 'সেবাসমূহ', href: '#services' },
-    { name: 'নোটিশ বোর্ড', href: '#notice' },
-    { name: 'যোগাযোগ', href: '#contact' },
-  ];
+  const logo = PlaceHolderImages.find(img => img.id === 'bdsa-logo');
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-primary/30 bg-background/95 backdrop-blur-md shadow-2xl">
-      <div className="container flex h-16 sm:h-20 items-center mx-auto px-4">
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-primary/20">
+      <div className="container mx-auto px-4 h-20 flex items-center justify-between gap-4">
         {/* Logo Section */}
-        <Link href="/" className="flex-shrink-0 mr-4 sm:mr-8">
-          <div className="relative w-28 h-10 sm:w-40 sm:h-14 transition-all">
-            <Image
-              src="https://res.cloudinary.com/dd3eekw7h/image/upload/v1773428346/Logo_-removebg-preview_qatfd0.png"
-              alt="BDSA Logo"
-              fill
-              className="object-contain object-left brightness-125"
-              priority
-            />
+        <Link href="/" className="flex items-center gap-3 shrink-0">
+          <div className="relative w-12 h-12 md:w-14 md:h-14">
+            {logo && (
+              <Image 
+                src={logo.imageUrl} 
+                alt="BDSA Logo" 
+                fill 
+                className="object-contain drop-shadow-[0_0_8px_rgba(0,229,255,0.4)]"
+              />
+            )}
+          </div>
+          <div className="hidden sm:block">
+            <h1 className="text-lg font-black font-headline text-white leading-none tracking-tighter">BDSA</h1>
+            <p className="text-[8px] text-primary font-bold uppercase tracking-[0.2em]">Authority</p>
           </div>
         </Link>
 
-        {/* Navigation */}
-        <nav className="flex-1 flex items-center justify-center gap-4 sm:gap-10 lg:gap-16 flex-nowrap whitespace-nowrap overflow-x-auto no-scrollbar px-2 py-1">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-[14px] sm:text-[16px] font-bold text-foreground/80 hover:text-primary transition-all py-1 border-b-2 border-transparent hover:border-primary hover:neon-glow"
+        {/* Navigation - Spaced out to fill gaps */}
+        <nav className="flex-1 flex justify-center items-center gap-2 md:gap-8 overflow-x-auto no-scrollbar py-2">
+          {['হোম', 'আমাদের সম্পর্কে', 'পরিষেবাসমূহ', 'নোটিশ বোর্ড', 'যোগাযোগ'].map((item) => (
+            <Link 
+              key={item} 
+              href="#" 
+              className="text-xs md:text-sm font-bold text-muted-foreground hover:text-primary transition-all whitespace-nowrap px-2"
             >
-              {item.name}
+              {item}
             </Link>
           ))}
         </nav>
 
         {/* Action Button */}
-        <div className="flex-shrink-0 ml-4 sm:ml-8">
+        <div className="shrink-0">
           <Button 
-            size="sm"
-            className="bg-primary text-background hover:bg-primary/90 font-black h-8 sm:h-10 px-3 sm:px-6 text-[11px] sm:text-[13px] rounded-lg neon-button border-none"
+            className="bg-primary hover:bg-primary/80 text-primary-foreground font-black text-[10px] md:text-xs rounded-lg px-3 md:px-6 shadow-[0_0_15px_rgba(0,229,255,0.2)]"
           >
-            <ShieldCheck className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-            <span>যাচাই করুন</span>
+            <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 mr-1.5" /> আইডি যাচাই
           </Button>
         </div>
       </div>
+      {/* Bottom Glow Line */}
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
     </header>
   );
 }

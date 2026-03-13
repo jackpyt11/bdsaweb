@@ -1,52 +1,79 @@
-import { Server, UserCheck, ChartColumn, Shield } from 'lucide-react';
+'use client';
+
+import { Shield, Cpu, Cloud, Database, Fingerprint, Network } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const services = [
   {
-    icon: <Server className="w-10 h-10" />,
-    title: "সিস্টেম ম্যানেজমেন্ট",
-    desc: "ডিজিটাল অবকাঠামোর ২৪/৭ প্রাপ্যতা এবং স্থিতিস্থাপকতা নিশ্চিত করতে ব্যাপক তদারকি।"
+    icon: <Fingerprint className="w-10 h-10 text-primary" />,
+    title: "ডিজিটাল আইডি ফ্রেমওয়ার্ক",
+    desc: "উন্নত বায়োমেট্রিক এবং এনক্রিপশন প্রযুক্তির মাধ্যমে নিরাপদ জাতীয় পরিচয় নিশ্চিতকরণ।"
   },
   {
-    icon: <ChartColumn className="w-10 h-10" />,
-    title: "আইটি পরামর্শ",
-    desc: "ডিজিটাল রূপান্তর নেভিগেট করার জন্য সরকারি এবং বেসরকারি প্রতিষ্ঠানের জন্য কৌশলগত পরামর্শ।"
+    icon: <Network className="w-10 h-10 text-primary" />,
+    title: "সিস্টেম ইন্টিগ্রেশন",
+    desc: "বিভিন্ন সরকারি ও বেসরকারি সংস্থাগুলোর মাঝে নিরবচ্ছিন্ন ডেটা আদান-প্রদান ব্যবস্থা।"
   },
   {
-    icon: <UserCheck className="w-10 h-10" />,
-    title: "যাচাইকরণ সেবা",
-    desc: "অত্যাধুনিক ব্লকচেইন প্রযুক্তি ব্যবহার করে শক্তিশালী আইডি এবং সার্টিফিকেট যাচাইকরণ প্রোটোকল।"
+    icon: <Database className="w-10 h-10 text-primary" />,
+    title: "সুরক্ষিত ডেটা ক্লাস্টার",
+    desc: "মাল্টি-লেয়ার রিডান্ডেন্সি এবং হাই-স্পিড ডেটা স্টোরেজ সলিউশন।"
+  },
+  {
+    icon: <Cpu className="w-10 h-10 text-primary" />,
+    title: "স্মার্ট ইনফ্রাস্ট্রাকচার",
+    desc: "ভবিষ্যতের স্মার্ট সিটি এবং আইওটি ইকোসিস্টেমের জন্য ডিজিটাল পরিকাঠামো নির্মাণ।"
+  },
+  {
+    icon: <Cloud className="w-10 h-10 text-primary" />,
+    title: "ই-গভর্নেন্স ক্লাউড",
+    desc: "সব নাগরিক পরিষেবা এক জায়গায় নিয়ে আসার জন্য উচ্চ-ক্ষমতাসম্পন্ন ক্লাউড প্ল্যাটফর্ম।"
+  },
+  {
+    icon: <Shield className="w-10 h-10 text-primary" />,
+    title: "সাইবার সিকিউরিটি অডিট",
+    desc: "জাতীয় পর্যায়ের ডিজিটাল সম্পদ সুরক্ষায় ২৪/৭ সিকিউরিটি মনিটরিং এবং থ্রেট অ্যানালাইসিস।"
   }
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-[#050d1f]">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-20 max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold font-headline mb-4 text-primary neon-glow">আমাদের মূল সেবাসমূহ</h2>
-          <p className="text-foreground/60 font-medium">নির্ভরযোগ্য, নিরাপদ এবং আধুনিক সমাধানের মাধ্যমে বাংলাদেশের ডিজিটাল ল্যান্ডস্কেপকে শক্তিশালী করা।</p>
+    <section id="services" className="py-24 bg-background relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-medium font-headline text-white mb-4">
+            আমাদের <span className="font-black text-primary drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">পরিষেবাসমূহ</span>
+          </h2>
+          <div className="h-1 w-24 bg-primary mx-auto rounded-full shadow-[0_0_10px_#00FFFF]"></div>
+          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg">
+            আধুনিক প্রযুক্তির সমন্বয়ে আমরা গড়ে তুলছি নিরাপদ এবং স্বচ্ছ ডিজিটাল ইকোসিস্টেম।
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
-            <div 
+            <Card 
               key={idx} 
-              className="group relative p-10 rounded-2xl border border-primary/10 bg-card hover:border-primary/40 transition-all duration-500 shadow-2xl overflow-hidden neon-border"
+              className="group bg-card/40 border-primary/10 hover:border-primary/50 transition-all duration-500 rounded-2xl overflow-hidden backdrop-blur-sm"
             >
-              <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="mb-8 text-primary w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-500">
-                {service.icon}
-              </div>
-              <h3 className="text-2xl font-bold font-headline mb-4 text-foreground group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-foreground/60 leading-relaxed font-medium">
-                {service.desc}
-              </p>
-              <div className="mt-8 pt-8 border-t border-primary/10 flex items-center gap-2 text-sm font-bold text-primary opacity-60 group-hover:opacity-100 transition-opacity">
-                আরও জানুন <Shield className="w-4 h-4" />
-              </div>
-            </div>
+              <CardContent className="p-8">
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-all"></div>
+                  <div className="relative w-16 h-16 flex items-center justify-center bg-background rounded-xl border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.1)] group-hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all">
+                    {service.icon}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold font-headline text-white mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  {service.desc}
+                </p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

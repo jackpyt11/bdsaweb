@@ -1,27 +1,27 @@
-import Image from 'next/image';
 import { Phone, Globe } from 'lucide-react';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function TopBar() {
+  const flag = PlaceHolderImages.find(img => img.id === 'bd-flag');
+
   return (
-    <div className="w-full bg-[#050d1f] border-b border-primary/10 py-2 px-4 flex items-center justify-between text-[11px] sm:text-xs font-medium tracking-wide text-foreground/60">
-      <div className="flex items-center gap-3">
-        <div className="relative w-6 h-4 overflow-hidden rounded-sm border border-primary/20">
-          <Image
-            src="https://picsum.photos/seed/bdflag/40/24"
-            alt="Bangladesh Flag"
-            fill
-            className="object-cover"
-          />
+    <div className="w-full bg-background border-b border-border py-2 px-4 flex items-center justify-between text-[10px] md:text-xs font-bold tracking-widest">
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 text-muted-foreground uppercase">
+          <div className="relative w-5 h-3 overflow-hidden rounded-[1px] opacity-80">
+            {flag && <Image src={flag.imageUrl} alt="BD Flag" fill className="object-cover" />}
+          </div>
+          <span>গভর্নমেন্ট সিস্টেম অথরিটি</span>
         </div>
-        <span className="uppercase tracking-widest">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত ডিজিটাল সিস্টেম অথরিটি</span>
       </div>
       
-      <div className="flex items-center gap-4 sm:gap-6">
-        <div className="hidden sm:flex items-center gap-1.5 text-primary">
+      <div className="flex items-center gap-6 text-primary">
+        <div className="flex items-center gap-1.5">
           <Phone className="w-3 h-3" />
           <span>হেল্পলাইন: ১৬১২২</span>
         </div>
-        <button className="flex items-center gap-1.5 hover:text-primary transition-colors">
+        <button className="flex items-center gap-1.5 hover:text-white transition-colors">
           <Globe className="w-3 h-3" />
           <span>BN / EN</span>
         </button>
