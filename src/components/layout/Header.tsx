@@ -1,13 +1,20 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Search, QrCode } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Header() {
   const logo = PlaceHolderImages.find(img => img.id === 'bdsa-logo');
+
+  const scrollToVerify = () => {
+    const section = document.getElementById('verify');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0A192F]/90 backdrop-blur-xl border-b border-primary/20">
@@ -53,9 +60,10 @@ export default function Header() {
         {/* Action Button */}
         <div className="shrink-0">
           <Button 
+            onClick={scrollToVerify}
             className="bg-primary hover:bg-primary/80 text-black font-black text-[10px] md:text-xs rounded-xl px-4 md:px-7 shadow-[0_0_15px_rgba(0,255,255,0.4)] hover:shadow-[0_0_25px_rgba(0,255,255,0.6)] transition-all border border-white/20"
           >
-            <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 mr-1.5" /> আইডি যাচাই
+            <QrCode className="w-3 h-3 md:w-4 md:h-4 mr-1.5" /> আইডি যাচাই
           </Button>
         </div>
       </div>
@@ -64,3 +72,4 @@ export default function Header() {
     </header>
   );
 }
+
