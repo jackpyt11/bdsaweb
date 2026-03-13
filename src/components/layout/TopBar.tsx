@@ -12,7 +12,7 @@ export default function TopBar() {
           <div className="relative w-6 h-4 overflow-hidden rounded-sm border border-white/10">
             <Image
               src={flag.imageUrl}
-              alt="বাংলাদেশের পতাকা"
+              alt="Bangladesh Flag"
               fill
               className="object-cover"
             />
