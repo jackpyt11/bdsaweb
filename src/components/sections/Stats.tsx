@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { Users, Shield, Server, CheckCircle } from 'lucide-react';
 
 const stats = [
-  { label: "Verified Members", value: 5000, suffix: "+", icon: <Users className="w-6 h-6" /> },
-  { label: "System Security", value: 99.9, suffix: "%", icon: <Shield className="w-6 h-6" /> },
-  { label: "Daily Transactions", value: 1500, suffix: "+", icon: <Server className="w-6 h-6" /> },
-  { label: "Active Nodes", value: 45, suffix: "", icon: <CheckCircle className="w-6 h-6" /> },
+  { label: "যাচাইকৃত সদস্য", value: 5000, suffix: "+", icon: <Users className="w-6 h-6" /> },
+  { label: "সিস্টেম নিরাপত্তা", value: 99.9, suffix: "%", icon: <Shield className="w-6 h-6" /> },
+  { label: "দৈনিক লেনদেন", value: 1500, suffix: "+", icon: <Server className="w-6 h-6" /> },
+  { label: "সক্রিয় নোড", value: 45, suffix: "", icon: <CheckCircle className="w-6 h-6" /> },
 ];
 
 export default function Stats() {

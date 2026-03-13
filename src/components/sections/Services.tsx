@@ -3,18 +3,18 @@ import { Server, UserCheck, ChartColumn, Shield } from 'lucide-react';
 const services = [
   {
     icon: <Server className="w-10 h-10" />,
-    title: "System Management",
-    desc: "Comprehensive oversight of digital infrastructure to ensure 24/7 availability and resilience."
+    title: "সিস্টেম ম্যানেজমেন্ট",
+    desc: "ডিজিটাল অবকাঠামোর ২৪/৭ প্রাপ্যতা এবং স্থিতিস্থাপকতা নিশ্চিত করতে ব্যাপক তদারকি।"
   },
   {
     icon: <ChartColumn className="w-10 h-10" />,
-    title: "IT Consultancy",
-    desc: "Strategic advisory for government and private entities to navigate digital transformation."
+    title: "আইটি পরামর্শ",
+    desc: "ডিজিটাল রূপান্তর নেভিগেট করার জন্য সরকারি এবং বেসরকারি প্রতিষ্ঠানের জন্য কৌশলগত পরামর্শ।"
   },
   {
     icon: <UserCheck className="w-10 h-10" />,
-    title: "Verification Service",
-    desc: "Robust ID and certificate verification protocols utilizing cutting-edge blockchain technology."
+    title: "যাচাইকরণ সেবা",
+    desc: "অত্যাধুনিক ব্লকচেইন প্রযুক্তি ব্যবহার করে শক্তিশালী আইডি এবং সার্টিফিকেট যাচাইকরণ প্রোটোকল।"
   }
 ];
 
@@ -23,8 +23,8 @@ export default function Services() {
     <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20 max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold font-headline mb-4 text-[#1B365D]">Our Core Services</h2>
-          <p className="text-[#5E7D9A] font-medium">Empowering Bangladesh's digital landscape with reliable, secure, and modern solutions.</p>
+          <h2 className="text-4xl font-bold font-headline mb-4 text-[#1B365D]">আমাদের মূল সেবাসমূহ</h2>
+          <p className="text-[#5E7D9A] font-medium">নির্ভরযোগ্য, নিরাপদ এবং আধুনিক সমাধানের মাধ্যমে বাংলাদেশের ডিজিটাল ল্যান্ডস্কেপকে শক্তিশালী করা।</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -44,7 +44,7 @@ export default function Services() {
                 {service.desc}
               </p>
               <div className="mt-8 pt-8 border-t border-slate-100 flex items-center gap-2 text-sm font-bold text-[#1B365D] opacity-0 group-hover:opacity-100 transition-opacity">
-                Learn More <Shield className="w-4 h-4" />
+                আরও জানুন <Shield className="w-4 h-4" />
               </div>
             </div>
           ))}

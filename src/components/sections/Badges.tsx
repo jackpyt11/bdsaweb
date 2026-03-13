@@ -3,21 +3,21 @@ import { Award, FileCheck, ShieldCheck } from 'lucide-react';
 const badges = [
   {
     icon: <FileCheck className="w-8 h-8" />,
-    label: "Trade License",
+    label: "ট্রেড লাইসেন্স",
     id: "TR-2024-8849-01",
-    desc: "Ministry of Commerce Approved"
+    desc: "বাণিজ্য মন্ত্রণালয় কর্তৃক অনুমোদিত"
   },
   {
     icon: <Award className="w-8 h-8" />,
-    label: "TIN Number",
+    label: "টিআইএন নম্বর",
     id: "TIN-589-223-XXXX",
-    desc: "National Board of Revenue Registered"
+    desc: "জাতীয় রাজস্ব বোর্ড নিবন্ধিত"
   },
   {
     icon: <ShieldCheck className="w-8 h-8" />,
-    label: "Govt. Reg. Status",
+    label: "সরকারি নিবন্ধন স্থিতি",
     id: "GR-BDSA-AUTH-001",
-    desc: "Authority Certification"
+    desc: "অথরিটি সার্টিফিকেশন"
   }
 ];
 

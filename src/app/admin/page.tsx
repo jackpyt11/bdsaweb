@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -52,8 +51,8 @@ export default function AdminPortal() {
       <Header />
       <main className="flex-1 container mx-auto px-4 py-12">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold font-headline text-primary mb-2">Administrative Hub</h1>
-          <p className="text-muted-foreground">AI-powered tools for BDSA content management.</p>
+          <h1 className="text-4xl font-bold font-headline text-primary mb-2">প্রশাসনিক হাব (Admin Hub)</h1>
+          <p className="text-muted-foreground">বিডিএসএ কন্টেন্ট ম্যানেজমেন্টের জন্য এআই-চালিত টুলস।</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -62,12 +61,12 @@ export default function AdminPortal() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <HelpCircle className="w-5 h-5 text-primary" />
-                FAQ Content Generator
+                এফএকিউ কন্টেন্ট জেনারেটর
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <Input 
-                placeholder="Enter common question..."
+                placeholder="সাধারণ প্রশ্নটি লিখুন..."
                 value={faqInput}
                 onChange={(e) => setFaqInput(e.target.value)}
               />
@@ -76,11 +75,11 @@ export default function AdminPortal() {
                 disabled={isFaqLoading}
                 className="w-full"
               >
-                {isFaqLoading ? <Loader2 className="animate-spin" /> : <><Sparkles className="mr-2 w-4 h-4" /> Generate Answer</>}
+                {isFaqLoading ? <Loader2 className="animate-spin" /> : <><Sparkles className="mr-2 w-4 h-4" /> উত্তর তৈরি করুন</>}
               </Button>
               {faqOutput && (
                 <div className="p-4 bg-muted rounded-lg text-sm italic">
-                  <strong>Suggested Answer:</strong> {faqOutput}
+                  <strong>পরামর্শকৃত উত্তর:</strong> {faqOutput}
                 </div>
               )}
             </CardContent>
@@ -91,12 +90,12 @@ export default function AdminPortal() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <FileText className="w-5 h-5 text-primary" />
-                Announcement Summarizer
+                নোটিশ সারসংক্ষেপ জেনারেটর
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <Textarea 
-                placeholder="Paste full announcement text here..."
+                placeholder="সম্পূর্ণ নোটিশ টেক্সট এখানে পেস্ট করুন..."
                 className="min-h-[150px]"
                 value={sumInput}
                 onChange={(e) => setSumInput(e.target.value)}
@@ -106,11 +105,11 @@ export default function AdminPortal() {
                 disabled={isSumLoading}
                 className="w-full"
               >
-                {isSumLoading ? <Loader2 className="animate-spin" /> : <><Sparkles className="mr-2 w-4 h-4" /> Summarize for Notice Board</>}
+                {isSumLoading ? <Loader2 className="animate-spin" /> : <><Sparkles className="mr-2 w-4 h-4" /> নোটিশ বোর্ডের জন্য সারসংক্ষেপ করুন</>}
               </Button>
               {sumOutput && (
                 <div className="p-4 bg-muted rounded-lg text-sm italic">
-                  <strong>Summary:</strong> {sumOutput}
+                  <strong>সারসংক্ষেপ:</strong> {sumOutput}
                 </div>
               )}
             </CardContent>

@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import { Phone, Globe } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -13,7 +12,7 @@ export default function TopBar() {
           <div className="relative w-6 h-4 overflow-hidden rounded-sm border border-white/10">
             <Image
               src={flag.imageUrl}
-              alt={flag.description}
+              alt="বাংলাদেশের পতাকা"
               fill
               className="object-cover"
             />
@@ -25,7 +24,7 @@ export default function TopBar() {
       <div className="flex items-center gap-4 sm:gap-6">
         <div className="hidden sm:flex items-center gap-1.5 text-primary">
           <Phone className="w-3 h-3" />
-          <span>Helpline: 16122</span>
+          <span>হেল্পলাইন: ১৬১২২</span>
         </div>
         <button className="flex items-center gap-1.5 hover:text-primary transition-colors">
           <Globe className="w-3 h-3" />

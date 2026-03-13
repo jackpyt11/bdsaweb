@@ -3,18 +3,18 @@ import { Target, Eye, ShieldCheck } from 'lucide-react';
 const blocks = [
   {
     icon: <Target className="w-12 h-12" />,
-    title: "Mission",
-    desc: "To deliver seamless digital services to every citizen through robust system integration and official oversight."
+    title: "লক্ষ্য (Mission)",
+    desc: "শক্তিশালী সিস্টেম ইন্টিগ্রেশন এবং অফিশিয়াল তদারকির মাধ্যমে প্রতিটি নাগরিকের কাছে নির্বিঘ্ন ডিজিটাল পরিষেবা পৌঁছে দেওয়া।"
   },
   {
     icon: <Eye className="w-12 h-12" />,
-    title: "Vision",
-    desc: "Leading the transformation into a Smart Bangladesh by 2041 with world-class digital infrastructure and security."
+    title: "ভিশন (Vision)",
+    desc: "বিশ্বমানের ডিজিটাল অবকাঠামো এবং নিরাপত্তার মাধ্যমে ২০৪১ সালের মধ্যে স্মার্ট বাংলাদেশে রূপান্তরের নেতৃত্ব দেওয়া।"
   },
   {
     icon: <ShieldCheck className="w-12 h-12" />,
-    title: "Values",
-    desc: "Operating with absolute transparency, security, and accountability as the cornerstone of our digital authority."
+    title: "মূল্যবোধ (Values)",
+    desc: "আমাদের ডিজিটাল অথরিটির ভিত্তি হিসেবে পূর্ণ স্বচ্ছতা, নিরাপত্তা এবং জবাবদিহিতার সাথে কাজ করা।"
   }
 ];
 

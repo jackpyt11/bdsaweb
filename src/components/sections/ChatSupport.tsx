@@ -1,4 +1,3 @@
-
 'use client';
 
 import { MessageSquare, X } from 'lucide-react';
@@ -14,20 +13,20 @@ export default function ChatSupport() {
           <div className="p-4 bg-primary text-primary-foreground rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-              <span className="font-bold font-headline">BDSA Live Support</span>
+              <span className="font-bold font-headline">বিডিএসএ লাইভ সাপোর্ট</span>
             </div>
             <button onClick={() => setIsOpen(false)}><X className="w-5 h-5" /></button>
           </div>
           <div className="flex-1 p-4 overflow-y-auto space-y-4">
             <div className="p-3 bg-muted rounded-xl text-xs max-w-[80%]">
-              Welcome to BDSA Official Support. How can we assist you today?
+              বিডিএসএ অফিশিয়াল সাপোর্টে স্বাগতম। আমরা আপনাকে কীভাবে সাহায্য করতে পারি?
             </div>
           </div>
           <div className="p-4 border-t border-border">
             <div className="flex gap-2">
               <input 
                 type="text" 
-                placeholder="Type your message..." 
+                placeholder="আপনার বার্তা লিখুন..." 
                 className="flex-1 bg-background border border-border rounded-lg px-3 py-2 text-sm focus:ring-1 focus:ring-primary outline-none"
               />
               <button className="bg-primary text-primary-foreground p-2 rounded-lg"><MessageSquare className="w-4 h-4" /></button>

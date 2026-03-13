@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -10,20 +9,20 @@ import {
 
 const faqs = [
   {
-    q: "How can I verify my Digital Identity Card?",
-    a: "You can use the official ID Verification Portal on our homepage. Simply enter your 12-digit verification ID provided on your card to see your status."
+    q: "আমি কীভাবে আমার ডিজিটাল পরিচয়পত্র যাচাই করতে পারি?",
+    a: "আপনি আমাদের হোমপেজে অফিশিয়াল আইডি যাচাইকরণ পোর্টাল ব্যবহার করতে পারেন। আপনার স্থিতি দেখতে কেবল আপনার কার্ডে দেওয়া ১২-সংখ্যার ভেরিফিকেশন আইডি দিন।"
   },
   {
-    q: "What is the legal validity of BDSA certifications?",
-    a: "BDSA is the official government-authorized entity. All certificates issued by us are legally recognized by the Ministry of ICT and all national banks."
+    q: "বিডিএসএ শংসাপত্রগুলোর আইনি বৈধতা কী?",
+    a: "বিডিএসএ একটি সরকারি অনুমোদিত সংস্থা। আমাদের দেওয়া সব শংসাপত্র আইসিটি মন্ত্রণালয় এবং সব জাতীয় ব্যাংক দ্বারা আইনত স্বীকৃত।"
   },
   {
-    q: "How do I update my registered system information?",
-    a: "System updates can be requested through the 'Services' portal or by visiting our regional office in Dhanmandi with your official credentials."
+    q: "আমি কীভাবে আমার নিবন্ধিত সিস্টেম তথ্য আপডেট করব?",
+    a: "আপনার অফিশিয়াল শংসাপত্র নিয়ে আমাদের 'সার্ভিসেস' পোর্টালের মাধ্যমে বা ধানমন্ডিতে আমাদের আঞ্চলিক কার্যালয় পরিদর্শন করে সিস্টেম আপডেটের অনুরোধ করা যেতে পারে।"
   },
   {
-    q: "What measures are in place for data security?",
-    a: "We employ 256-bit encryption and multi-node redundancy across our server clusters to ensure the highest level of national data protection."
+    q: "ডেটা নিরাপত্তার জন্য কী কী ব্যবস্থা নেওয়া হয়েছে?",
+    a: "জাতীয় ডেটা সুরক্ষার সর্বোচ্চ স্তর নিশ্চিত করতে আমরা আমাদের সার্ভার ক্লাস্টারগুলোতে ২৫৬-বিট এনক্রিপশন এবং মাল্টি-নোড রিডান্ডেন্সি নিয়োগ করি।"
   }
 ];
 
@@ -32,8 +31,8 @@ export default function FAQ() {
     <section id="faq" className="py-24 bg-card/50">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold font-headline mb-4">Frequently Asked Questions</h2>
-          <p className="text-muted-foreground">General inquiries about our systems and services.</p>
+          <h2 className="text-4xl font-bold font-headline mb-4">সচরাচর জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</h2>
+          <p className="text-muted-foreground">আমাদের সিস্টেম এবং পরিষেবা সম্পর্কে সাধারণ জিজ্ঞাসা।</p>
         </div>
 
         <Accordion type="single" collapsible className="w-full">

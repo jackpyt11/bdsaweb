@@ -2,21 +2,21 @@ import { Bell, QrCode, ArrowUpRight } from 'lucide-react';
 
 const notices = [
   {
-    title: "New E-ID Registration Deadline Extended for Fiscal Year 2024",
+    title: "২০২৪ অর্থবছরের জন্য নতুন ই-আইডি নিবন্ধনের সময়সীমা বাড়ানো হয়েছে",
     ref: "BDSA/NOT/2024/042",
-    date: "Oct 24, 2024",
+    date: "২৪ অক্টোবর, ২০২৪",
     isNew: true
   },
   {
-    title: "Updated Security Protocol for System Management API Access",
+    title: "সিস্টেম ম্যানেজমেন্ট এপিআই অ্যাক্সেসের জন্য আপডেট করা নিরাপত্তা প্রোটোকল",
     ref: "BDSA/SEC/2024/015",
-    date: "Oct 20, 2024",
+    date: "২০ অক্টোবর, ২০২৪",
     isNew: false
   },
   {
-    title: "Official Partnership Announcement: Bangladesh Bank Digital Framework",
+    title: "অফিশিয়াল পার্টনারশিপ ঘোষণা: বাংলাদেশ ব্যাংক ডিজিটাল ফ্রেমওয়ার্ক",
     ref: "BDSA/PR/2024/088",
-    date: "Oct 15, 2024",
+    date: "১৫ অক্টোবর, ২০২৪",
     isNew: false
   }
 ];
@@ -31,11 +31,11 @@ export default function NoticeBoard() {
               <Bell className="w-8 h-8" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold font-headline text-[#1B365D]">Official Notice Board</h2>
-              <p className="text-[#5E7D9A] font-medium">Transparency through official dissemination</p>
+              <h2 className="text-3xl font-bold font-headline text-[#1B365D]">অফিশিয়াল নোটিশ বোর্ড</h2>
+              <p className="text-[#5E7D9A] font-medium">অফিশিয়াল প্রচারের মাধ্যমে স্বচ্ছতা নিশ্চিতকরণ</p>
             </div>
           </div>
-          <button className="hidden sm:block text-[#1B365D] font-bold hover:underline decoration-2 underline-offset-4">View All Notices</button>
+          <button className="hidden sm:block text-[#1B365D] font-bold hover:underline decoration-2 underline-offset-4">সব নোটিশ দেখুন</button>
         </div>
 
         <div className="space-y-6">
@@ -48,12 +48,12 @@ export default function NoticeBoard() {
                 <div className="flex items-center gap-3">
                   <h3 className="text-xl font-bold text-[#1B365D] group-hover:text-[#2A5A8F] transition-colors">{notice.title}</h3>
                   {notice.isNew && (
-                    <span className="text-[10px] font-bold bg-[#E53E3E] text-white px-3 py-1 rounded-full uppercase animate-blink">New</span>
+                    <span className="text-[10px] font-bold bg-[#E53E3E] text-white px-3 py-1 rounded-full uppercase animate-blink">নতুন</span>
                   )}
                 </div>
                 <div className="flex items-center gap-6 text-xs text-[#5E7D9A] font-bold uppercase tracking-widest">
-                  <span className="bg-slate-50 px-2 py-1 rounded">Ref: {notice.ref}</span>
-                  <span>Date: {notice.date}</span>
+                  <span className="bg-slate-50 px-2 py-1 rounded">রেফারেন্স: {notice.ref}</span>
+                  <span>তারিখ: {notice.date}</span>
                 </div>
               </div>
 
@@ -62,7 +62,7 @@ export default function NoticeBoard() {
                   <div className="p-2 bg-slate-50 rounded-lg mb-2 border border-slate-100 group-hover:bg-white transition-colors">
                     <QrCode className="w-8 h-8 text-[#1B365D]" />
                   </div>
-                  <span className="text-[9px] text-[#5E7D9A] font-bold uppercase tracking-tighter">Verify Notice</span>
+                  <span className="text-[9px] text-[#5E7D9A] font-bold uppercase tracking-tighter">নোটিশ যাচাই</span>
                 </div>
                 <div className="p-3 rounded-2xl bg-[#1B365D]/5 text-[#1B365D] group-hover:bg-[#1B365D] group-hover:text-white transition-all shadow-sm">
                   <ArrowUpRight className="w-6 h-6" />

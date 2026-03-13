@@ -1,4 +1,3 @@
-
 import { MapPin, Mail, Phone, Clock } from 'lucide-react';
 
 export default function Contact() {
@@ -8,8 +7,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="space-y-12">
             <div>
-              <h2 className="text-4xl font-bold font-headline mb-6">Our Physical Presence</h2>
-              <p className="text-muted-foreground text-lg">Visit our headquarters for official authentication services and administrative inquiries.</p>
+              <h2 className="text-4xl font-bold font-headline mb-6">আমাদের অবস্থান</h2>
+              <p className="text-muted-foreground text-lg">অফিশিয়াল অথেন্টিকেশন সেবা এবং প্রশাসনিক অনুসন্ধানের জন্য আমাদের সদর দপ্তরে ভিজিট করুন।</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -18,8 +17,8 @@ export default function Contact() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">HQ Address</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">Level 12, Digital Vision Tower,<br />Dhanmandi 27, Dhaka - 1209</p>
+                  <h4 className="font-bold text-lg mb-1">সদর দপ্তরের ঠিকানা</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">লেভেল ১২, ডিজিটাল ভিশন টাওয়ার,<br />ধানমন্ডি ২৭, ঢাকা - ১২০৯</p>
                 </div>
               </div>
 
@@ -28,7 +27,7 @@ export default function Contact() {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Email Support</h4>
+                  <h4 className="font-bold text-lg mb-1">ইমেইল সাপোর্ট</h4>
                   <p className="text-muted-foreground text-sm">support@bdsa.gov.bd<br />info@bdsa.gov.bd</p>
                 </div>
               </div>
@@ -38,8 +37,8 @@ export default function Contact() {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Direct Line</h4>
-                  <p className="text-muted-foreground text-sm">+880 2 911-XXXX<br />+880 1700-XXXXXX</p>
+                  <h4 className="font-bold text-lg mb-1">সরাসরি লাইন</h4>
+                  <p className="text-muted-foreground text-sm">+৮৮০ ২ ৯১১-XXXX<br />+৮৮০ ১৭০০-XXXXXX</p>
                 </div>
               </div>
 
@@ -48,8 +47,8 @@ export default function Contact() {
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Official Hours</h4>
-                  <p className="text-muted-foreground text-sm">Sunday - Thursday<br />09:00 AM - 05:00 PM</p>
+                  <h4 className="font-bold text-lg mb-1">অফিস সময়</h4>
+                  <p className="text-muted-foreground text-sm">রবিবার - বৃহস্পতিবার<br />সকাল ০৯:০০ - বিকাল ০৫:০০</p>
                 </div>
               </div>
             </div>
@@ -60,10 +59,9 @@ export default function Contact() {
             <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center">
               <div className="text-center space-y-4 px-8">
                 <MapPin className="w-12 h-12 text-primary mx-auto opacity-50" />
-                <p className="text-muted-foreground font-code text-sm">INTERACTIVE MAP LOADING...<br />[ Dhanmandi, Dhaka ]</p>
+                <p className="text-muted-foreground font-code text-sm">ইন্টারেক্টিভ ম্যাপ লোড হচ্ছে...<br />[ ধানমন্ডি, ঢাকা ]</p>
               </div>
             </div>
-            {/* In a real app, use Google Maps iframe or Vis.GL here */}
           </div>
         </div>
       </div>

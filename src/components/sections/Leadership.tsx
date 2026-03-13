@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Award } from 'lucide-react';
@@ -6,21 +5,21 @@ import { Award } from 'lucide-react';
 const leaders = [
   {
     id: 'ceo-portrait',
-    name: "Dr. Ahmed Rahman",
-    role: "Founding Director & CEO",
-    seal: "Official E-Seal Approved"
+    name: "ড. আহমেদ রহমান",
+    role: "প্রতিষ্ঠাতা পরিচালক ও সিইও",
+    seal: "অফিশিয়াল ই-সীল অনুমোদিত"
   },
   {
     id: 'leadership-2',
-    name: "Sarah Chowdhury",
-    role: "Head of Digital Security",
-    seal: "Departmental Seal"
+    name: "সারা চৌধুরী",
+    role: "ডিজিটাল নিরাপত্তা প্রধান",
+    seal: "বিভাগীয় সীল"
   },
   {
     id: 'leadership-3',
-    name: "Lt. Col. S. Mahmud",
-    role: "Operational Strategist",
-    seal: "Framework Authority"
+    name: "লেঃ কর্নেল এস. মাহমুদ",
+    role: "অপারেশনাল স্ট্র্যাটেজিস্ট",
+    seal: "ফ্রেমওয়ার্ক অথরিটি"
   }
 ];
 
@@ -29,8 +28,8 @@ export default function Leadership() {
     <section id="team" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold font-headline mb-4">Leadership Team</h2>
-          <p className="text-muted-foreground">The visionaries behind Bangladesh's digital governance.</p>
+          <h2 className="text-4xl font-bold font-headline mb-4">নেতৃত্বের দল</h2>
+          <p className="text-muted-foreground">বাংলাদেশের ডিজিটাল শাসনের নেপথ্যের স্বপ্নদ্রষ্টারা।</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
