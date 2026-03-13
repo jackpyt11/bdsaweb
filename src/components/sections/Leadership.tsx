@@ -1,26 +1,22 @@
 
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Award } from 'lucide-react';
 
 const leaders = [
   {
     id: 'leader-ceo',
     name: "ড. আহমেদ রহমান",
-    role: "প্রতিষ্ঠাতা পরিচালক ও সিইও",
-    seal: "অফিশিয়াল ই-সীল অনুমোদিত"
+    role: "প্রতিষ্ঠাতা পরিচালক ও সিইও"
   },
   {
     id: 'leader-security',
     name: "সারা চৌধুরী",
-    role: "ডিজিটাল নিরাপত্তা প্রধান",
-    seal: "বিভাগীয় সীল"
+    role: "ডিজিটাল নিরাপত্তা প্রধান"
   },
   {
     id: 'leader-ops',
     name: "লেঃ কর্নেল এস. মাহমুদ",
-    role: "অপারেশনাল স্ট্র্যাটেজিস্ট",
-    seal: "ফ্রেমওয়ার্ক অথরিটি"
+    role: "অপারেশনাল স্ট্র্যাটেজিস্ট"
   }
 ];
 
@@ -55,13 +51,6 @@ export default function Leadership() {
                   )}
                   {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
-                  
-                  {/* Status Seal */}
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
-                      <Award className="w-3.5 h-3.5" /> {leader.seal}
-                    </div>
-                  </div>
                 </div>
                 
                 <div className="text-center space-y-2">
