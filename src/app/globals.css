@@ -4,18 +4,18 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%; /* #F9FAFB - Off-White */
-    --foreground: 216 55% 15%; /* #1B365D - Navy Blue */
+    --background: 210 20% 98%; /* #F9FAFB */
+    --foreground: 216 55% 15%; /* #1B365D */
     --card: 0 0% 100%;
     --card-foreground: 216 55% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 216 55% 15%;
     --primary: 216 55% 24%; /* #1B365D - Navy Blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 212 55% 37%; /* #2A5A8F - Action Blue */
+    --secondary: 212 55% 37%; /* #2A5A8F */
     --secondary-foreground: 0 0% 100%;
     --muted: 210 20% 96%;
-    --muted-foreground: 216 20% 40%; /* #5E7D9A - Slate Blue */
+    --muted-foreground: 216 20% 40%;
     --accent: 212 55% 37%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 77% 57%;
@@ -54,4 +54,9 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Custom Text Shadow for Hero */
+.text-shadow-sm {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
