@@ -23,49 +23,49 @@ const notices = [
 
 export default function NoticeBoard() {
   return (
-    <section id="notice" className="py-20 bg-white">
+    <section id="notice" className="py-24 bg-card/30">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#1B365D]/5 rounded-lg text-[#1B365D]">
-              <Bell className="w-6 h-6" />
+            <div className="p-3 bg-primary/10 rounded-xl text-[#1E4069]">
+              <Bell className="w-8 h-8" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold font-headline text-[#1B365D]">Official Notice Board</h2>
-              <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">Latest Communications</p>
+              <h2 className="text-3xl font-bold font-headline">Official Notice Board</h2>
+              <p className="text-muted-foreground">Transparency through official dissemination</p>
             </div>
           </div>
-          <button className="hidden sm:block text-[#D4AF37] text-sm font-bold hover:underline">View All Notices</button>
+          <button className="hidden sm:block text-[#1E4069] font-bold hover:underline">View All Notices</button>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {notices.map((notice, idx) => (
             <div 
               key={idx} 
-              className="group flex flex-col md:flex-row items-start md:items-center justify-between p-5 rounded-lg border border-slate-100 bg-[#F8F9FA] hover:border-[#D4AF37] transition-all cursor-pointer"
+              className="group flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-xl border border-border bg-background hover:border-[#2A5A8F] transition-all cursor-pointer shadow-sm hover:shadow-md"
             >
-              <div className="flex-1 space-y-1">
+              <div className="flex-1 space-y-2">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-base font-bold text-[#1B365D] group-hover:text-[#D4AF37] transition-colors">{notice.title}</h3>
+                  <h3 className="text-lg font-bold group-hover:text-[#2A5A8F] transition-colors">{notice.title}</h3>
                   {notice.isNew && (
-                    <span className="text-[9px] font-bold bg-[#E53E3E] text-white px-1.5 py-0.5 rounded uppercase animate-blink">New</span>
+                    <span className="text-[10px] font-bold bg-[#E53E3E] text-white px-2 py-0.5 rounded uppercase animate-blink">New</span>
                   )}
                 </div>
-                <div className="flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-tight">
-                  <span className="bg-slate-200 px-1.5 rounded text-slate-600">Ref: {notice.ref}</span>
+                <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                  <span className="font-code">Ref: {notice.ref}</span>
                   <span>Date: {notice.date}</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 mt-4 md:mt-0">
+              <div className="flex items-center gap-6 mt-4 md:mt-0">
                 <div className="flex flex-col items-center">
                   <div className="p-1 bg-white rounded-sm mb-1 border border-slate-200">
-                    <QrCode className="w-6 h-6 text-black" />
+                    <QrCode className="w-8 h-8 text-black" />
                   </div>
-                  <span className="text-[8px] text-slate-400 font-bold uppercase">Verify</span>
+                  <span className="text-[8px] text-muted-foreground font-bold uppercase">Verify Notice</span>
                 </div>
-                <div className="p-2 rounded-md bg-[#D4AF37]/10 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-white transition-all">
-                  <ArrowUpRight className="w-4 h-4" />
+                <div className="p-2 rounded-full bg-primary/5 text-primary group-hover:bg-[#2A5A8F] group-hover:text-white transition-all">
+                  <ArrowUpRight className="w-5 h-5" />
                 </div>
               </div>
             </div>

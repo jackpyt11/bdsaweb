@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -15,7 +14,7 @@ export default function Stats() {
   const [counts, setCounts] = useState(stats.map(() => 0));
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const steps = 60;
     const interval = duration / steps;
 
@@ -34,18 +33,18 @@ export default function Stats() {
   }, []);
 
   return (
-    <section className="py-20 bg-background overflow-hidden">
+    <section className="py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, idx) => (
-            <div key={idx} className="relative p-8 rounded-2xl border border-border bg-card hover:border-primary/50 transition-all duration-300 group">
-              <div className="absolute top-0 right-0 p-4 text-primary/10 transition-transform group-hover:scale-110">
+            <div key={idx} className="relative p-8 rounded-2xl bg-white border-l-4 border-[#D4AF37] shadow-lg shadow-navy-900/5 hover:shadow-xl transition-all duration-300 group">
+              <div className="mb-4 w-12 h-12 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
                 {stat.icon}
               </div>
-              <div className="text-4xl sm:text-5xl font-bold font-headline text-primary mb-2">
+              <div className="text-4xl font-bold font-headline text-[#1B365D] mb-1">
                 {counts[idx].toLocaleString()}{stat.suffix}
               </div>
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">{stat.label}</p>
+              <p className="text-sm font-semibold text-[#5E7D9A] uppercase tracking-wider">{stat.label}</p>
             </div>
           ))}
         </div>

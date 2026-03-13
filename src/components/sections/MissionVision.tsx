@@ -1,4 +1,3 @@
-
 import { Target, Eye, ShieldCheck } from 'lucide-react';
 
 const blocks = [
@@ -26,7 +25,9 @@ export default function MissionVision() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {blocks.map((block, idx) => (
             <div key={idx} className="flex flex-col items-start space-y-4">
-              <div className="text-primary">{block.icon}</div>
+              <div className="text-primary bg-primary/10 p-4 rounded-full mb-2">
+                {block.icon}
+              </div>
               <h3 className="text-3xl font-bold font-headline">{block.title}</h3>
               <p className="text-muted-foreground text-lg leading-relaxed">{block.desc}</p>
             </div>
