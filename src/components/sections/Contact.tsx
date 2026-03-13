@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 const contactCards = [
   {
-    title: "অফিস লোকেশন",
+    title: ["অফিস", "লোকেশন"],
     icon: <MapPin className="w-8 h-8 text-primary" />,
     details: [
       "লেভেল ১২, ডিজিটাল ভিশন টাওয়ার,",
@@ -14,7 +14,7 @@ const contactCards = [
     isGlass: true
   },
   {
-    title: "২৪/৭ সহায়তা কেন্দ্র",
+    title: ["২৪/৭", "সহায়তা কেন্দ্র"],
     icon: <Phone className="w-8 h-8 text-primary" />,
     details: [
       "হেল্পলাইন: ১৬১২২ (ভূমি ও সিস্টেম সেবা)",
@@ -23,7 +23,7 @@ const contactCards = [
     highlight: true
   },
   {
-    title: "অনলাইন যোগাযোগ",
+    title: ["অনলাইন", "যোগাযোগ"],
     icon: <Mail className="w-8 h-8 text-primary group-hover:animate-pulse" />,
     details: [
       "সাধারণ তথ্য: info@bdsa.gov.bd",
@@ -32,7 +32,7 @@ const contactCards = [
     isEmail: true
   },
   {
-    title: "ডিজিটাল প্ল্যাটফর্ম",
+    title: ["ডিজিটাল", "প্ল্যাটফর্ম"],
     icon: <Globe className="w-8 h-8 text-primary" />,
     details: [
       "ফেসবুক: fb.com/bdsa.official",
@@ -68,35 +68,48 @@ export default function Contact() {
                   card.isGlass && "bg-primary/5 shadow-xl"
                 )}
               >
-                <div className="mb-6 p-4 rounded-2xl bg-primary/10 border border-primary/20 group-hover:scale-110 transition-transform">
+                <div className="mb-6 p-4 rounded-2xl bg-primary/10 border border-primary/20 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,255,255,0.1)]">
                   {card.icon}
                 </div>
-                <h3 className="text-xl font-bold font-headline text-primary mb-4 uppercase tracking-wider">
-                  {card.title}
-                </h3>
-                <div className="space-y-2">
-                  {card.details.map((line, lIdx) => (
-                    <p 
-                      key={lIdx} 
-                      className={cn(
-                        "text-sm font-medium leading-relaxed",
-                        card.highlight && (line.includes('১৬১২২') || line.includes('৭৮৯৪৫২')) ? "text-primary drop-shadow-[0_0_8px_rgba(0,255,255,0.6)] font-black" : "text-muted-foreground"
-                      )}
-                    >
-                      {line}
-                    </p>
+                
+                {/* Two-Line Title as per Image */}
+                <h3 className="text-2xl font-black font-headline text-primary mb-6 flex flex-col items-center leading-tight tracking-tight drop-shadow-[0_0_10px_rgba(0,255,255,0.3)]">
+                  {card.title.map((word, wIdx) => (
+                    <span key={wIdx}>{word}</span>
                   ))}
+                </h3>
+
+                <div className="space-y-3 w-full">
+                  {card.details.map((line, lIdx) => {
+                    // Two-Color Logic for Details
+                    if (line.includes(':')) {
+                      const [label, value] = line.split(':');
+                      return (
+                        <p key={lIdx} className="text-sm font-medium leading-relaxed text-muted-foreground">
+                          {label}: <span className="text-primary drop-shadow-[0_0_8px_rgba(0,255,255,0.6)] font-black">{value}</span>
+                        </p>
+                      );
+                    }
+                    return (
+                      <p 
+                        key={lIdx} 
+                        className="text-sm font-medium leading-relaxed text-muted-foreground"
+                      >
+                        {line}
+                      </p>
+                    );
+                  })}
                 </div>
                 
                 {card.isSocial && (
-                  <div className="mt-6 flex gap-3">
-                    <button className="p-2 rounded-lg border border-primary/30 text-primary hover:bg-primary hover:text-black transition-all">
+                  <div className="mt-8 flex gap-3">
+                    <button className="p-2.5 rounded-xl border border-primary/30 text-primary hover:bg-primary hover:text-black transition-all shadow-[0_0_10px_rgba(0,255,255,0.05)]">
                       <Facebook className="w-4 h-4" />
                     </button>
-                    <button className="p-2 rounded-lg border border-primary/30 text-primary hover:bg-primary hover:text-black transition-all">
+                    <button className="p-2.5 rounded-xl border border-primary/30 text-primary hover:bg-primary hover:text-black transition-all shadow-[0_0_10px_rgba(0,255,255,0.05)]">
                       <Linkedin className="w-4 h-4" />
                     </button>
-                    <button className="p-2 rounded-lg border border-primary/30 text-primary hover:bg-primary hover:text-black transition-all">
+                    <button className="p-2.5 rounded-xl border border-primary/30 text-primary hover:bg-primary hover:text-black transition-all shadow-[0_0_10px_rgba(0,255,255,0.05)]">
                       <ExternalLink className="w-4 h-4" />
                     </button>
                   </div>
@@ -121,11 +134,9 @@ export default function Contact() {
               title="BDSA Office Location"
             ></iframe>
             
-            {/* Dark/Cyan Overlay Grid */}
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-transparent to-transparent opacity-40"></div>
             <div className="absolute inset-0 pointer-events-none border-[20px] border-background/50 rounded-[40px]"></div>
             
-            {/* Center Pin Marker Animation - Primary Color */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
               <div className="relative flex h-12 w-12 items-center justify-center">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40"></span>
