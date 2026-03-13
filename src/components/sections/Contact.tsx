@@ -18,7 +18,7 @@ const contactCards = [
     icon: <Phone className="w-8 h-8 text-primary" />,
     details: [
       "হেল্পলাইন: ১৬১২২ (ভূমি ও সিস্টেম সেবা)",
-      "অফিসিয়াল সাপোর্ট: +৮৮০ ১৭০০-XXXXXX"
+      "অফিসিয়াল সাপোর্ট: +৮৮০ ১৭০০-789452"
     ],
     highlight: true
   },
@@ -80,7 +80,7 @@ export default function Contact() {
                       key={lIdx} 
                       className={cn(
                         "text-sm font-medium leading-relaxed",
-                        card.highlight && line.includes('১৬১২২') ? "text-primary drop-shadow-[0_0_8px_rgba(0,255,255,0.6)] font-black" : "text-muted-foreground"
+                        card.highlight && (line.includes('১৬১২২') || line.includes('789452')) ? "text-primary drop-shadow-[0_0_8px_rgba(0,255,255,0.6)] font-black" : "text-muted-foreground"
                       )}
                     >
                       {line}
