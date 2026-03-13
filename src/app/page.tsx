@@ -13,6 +13,7 @@ import News from '@/components/sections/News';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer';
 import ChatSupport from '@/components/sections/ChatSupport';
+import EmergencyDirectory from '@/components/sections/EmergencyDirectory';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <Leadership />
       <News />
       <FAQ />
+      <EmergencyDirectory />
       <Contact />
       <Footer />
       <ChatSupport />
