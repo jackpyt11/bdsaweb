@@ -29,7 +29,7 @@ export default function Badges() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-center">
           {badges.map((badge, idx) => (
             <div key={idx} className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center text-primary mb-4 bg-primary/5 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300 shadow-[0_0_15px_rgba(230,172,46,0.1)]">
+              <div className="w-20 h-20 rounded-full border-2 border-accent/30 flex items-center justify-center text-accent mb-4 bg-accent/5 group-hover:border-accent group-hover:bg-accent/10 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
                 {badge.icon}
               </div>
               <h3 className="text-xl font-headline font-bold mb-1 text-primary">{badge.label}</h3>

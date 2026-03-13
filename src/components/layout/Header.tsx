@@ -17,15 +17,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-[#1E4069] text-white">
       <div className="container flex h-20 items-center justify-between mx-auto px-4">
         <div className="flex items-center gap-2">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-primary/10">
-            <span className="text-xl font-bold text-primary font-headline">BDSA</span>
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-accent bg-accent/10">
+            <span className="text-xl font-bold text-accent font-headline">BDSA</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tighter font-headline text-foreground">BDSA</span>
-            <span className="text-[10px] uppercase text-muted-foreground tracking-widest font-bold">Authority Hub</span>
+            <span className="text-lg font-bold tracking-tighter font-headline">BDSA</span>
+            <span className="text-[10px] uppercase text-slate-300 tracking-widest font-bold">Authority Hub</span>
           </div>
         </div>
 
@@ -34,7 +34,7 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-slate-200 hover:text-accent transition-colors"
             >
               {item.name}
             </Link>
@@ -43,12 +43,11 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <Button 
-            className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-[0_0_15px_rgba(230,172,46,0.3)]"
+            className="hidden sm:flex bg-primary hover:bg-primary/90 text-white font-bold border border-slate-400"
           >
             <ShieldCheck className="w-4 h-4 mr-2" />
             Verify Certificate/ID
           </Button>
-          {/* Mobile menu could go here */}
         </div>
       </div>
     </header>

@@ -29,7 +29,7 @@ export default function NoticeBoard() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-primary/10 rounded-xl text-primary">
+            <div className="p-3 bg-primary/10 rounded-xl text-[#1E4069]">
               <Bell className="w-8 h-8" />
             </div>
             <div>
@@ -37,20 +37,20 @@ export default function NoticeBoard() {
               <p className="text-muted-foreground">Transparency through official dissemination</p>
             </div>
           </div>
-          <button className="hidden sm:block text-primary font-bold hover:underline">View All Notices</button>
+          <button className="hidden sm:block text-[#1E4069] font-bold hover:underline">View All Notices</button>
         </div>
 
         <div className="space-y-4">
           {notices.map((notice, idx) => (
             <div 
               key={idx} 
-              className="group flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-xl border border-border bg-background hover:border-primary transition-all cursor-pointer"
+              className="group flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-xl border border-border bg-background hover:border-[#2A5A8F] transition-all cursor-pointer"
             >
               <div className="flex-1 space-y-2">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{notice.title}</h3>
+                  <h3 className="text-lg font-bold group-hover:text-[#2A5A8F] transition-colors">{notice.title}</h3>
                   {notice.isNew && (
-                    <span className="text-[10px] font-bold bg-destructive text-destructive-foreground px-2 py-0.5 rounded uppercase animate-blink">New</span>
+                    <span className="text-[10px] font-bold bg-[#E53E3E] text-white px-2 py-0.5 rounded uppercase animate-blink">New</span>
                   )}
                 </div>
                 <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -61,12 +61,12 @@ export default function NoticeBoard() {
 
               <div className="flex items-center gap-6 mt-4 md:mt-0">
                 <div className="flex flex-col items-center">
-                  <div className="p-1 bg-white rounded-sm mb-1">
+                  <div className="p-1 bg-white rounded-sm mb-1 border border-slate-200">
                     <QrCode className="w-8 h-8 text-black" />
                   </div>
-                  <span className="text-[8px] text-muted-foreground font-bold">VERIFY</span>
+                  <span className="text-[8px] text-muted-foreground font-bold uppercase">Verify Notice</span>
                 </div>
-                <div className="p-2 rounded-full bg-primary/5 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                <div className="p-2 rounded-full bg-primary/5 text-primary group-hover:bg-[#2A5A8F] group-hover:text-white transition-all">
                   <ArrowUpRight className="w-5 h-5" />
                 </div>
               </div>
