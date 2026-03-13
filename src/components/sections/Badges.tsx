@@ -10,7 +10,7 @@ const badges = [
   {
     icon: <Award className="w-8 h-8" />,
     label: "টিআইএন নম্বর",
-    id: "TIN-589-223-XXXX",
+    id: "TIN-589-223-4562",
     desc: "জাতীয় রাজস্ব বোর্ড নিবন্ধিত"
   },
   {
