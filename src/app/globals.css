@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%; /* #F9FAFB */
-    --foreground: 216 55% 15%; /* #1B365D */
-    --card: 0 0% 100%;
-    --card-foreground: 216 55% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 55% 15%;
-    --primary: 216 55% 24%; /* #1B365D - Navy Blue */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 212 55% 37%; /* #2A5A8F */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 210 20% 96%;
-    --muted-foreground: 216 20% 40%;
-    --accent: 212 55% 37%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 77% 57%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 216 20% 90%;
-    --input: 216 20% 90%;
-    --ring: 216 55% 24%;
-    --radius: 1rem;
+    --background: 222 47% 11%; /* #0A192F - Deep Dark Navy */
+    --foreground: 180 100% 90%; /* Light Cyan Tint */
+    --card: 222 47% 13%;
+    --card-foreground: 180 100% 90%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 180 100% 90%;
+    --primary: 180 100% 50%; /* #00FFFF - Neon Cyan */
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 180 100% 50%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 180 100% 90%;
+    --border: 180 100% 20%;
+    --input: 217 32% 17%;
+    --ring: 180 100% 50%;
+    --radius: 0.75rem;
   }
 }
 
@@ -35,8 +35,26 @@
     @apply bg-background text-foreground font-body;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline text-[#1B365D] font-bold;
+    @apply font-headline font-bold;
   }
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.neon-border {
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.3), inset 0 0 5px rgba(0, 255, 255, 0.1);
+}
+
+.neon-button {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  transform: translateY(-2px);
 }
 
 @keyframes blink {
@@ -54,9 +72,4 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Custom Text Shadow for Hero */
-.text-shadow-sm {
-  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }

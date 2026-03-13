@@ -20,30 +20,30 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-24 bg-[#050d1f]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20 max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold font-headline mb-4 text-[#1B365D]">আমাদের মূল সেবাসমূহ</h2>
-          <p className="text-[#5E7D9A] font-medium">নির্ভরযোগ্য, নিরাপদ এবং আধুনিক সমাধানের মাধ্যমে বাংলাদেশের ডিজিটাল ল্যান্ডস্কেপকে শক্তিশালী করা।</p>
+          <h2 className="text-4xl font-bold font-headline mb-4 text-primary neon-glow">আমাদের মূল সেবাসমূহ</h2>
+          <p className="text-foreground/60 font-medium">নির্ভরযোগ্য, নিরাপদ এবং আধুনিক সমাধানের মাধ্যমে বাংলাদেশের ডিজিটাল ল্যান্ডস্কেপকে শক্তিশালী করা।</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {services.map((service, idx) => (
             <div 
               key={idx} 
-              className="group relative p-10 rounded-2xl border border-slate-100 bg-white hover:border-[#1B365D]/20 transition-all duration-500 shadow-[0_10px_40px_-15px_rgba(27,54,93,0.08)] hover:shadow-2xl"
+              className="group relative p-10 rounded-2xl border border-primary/10 bg-card hover:border-primary/40 transition-all duration-500 shadow-2xl overflow-hidden neon-border"
             >
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#1B365D] rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="mb-8 text-[#1B365D] w-16 h-16 rounded-2xl bg-[#1B365D]/5 flex items-center justify-center group-hover:bg-[#1B365D] group-hover:text-white transition-all duration-500">
+              <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="mb-8 text-primary w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-500">
                 {service.icon}
               </div>
-              <h3 className="text-2xl font-bold font-headline mb-4 text-[#1B365D]">
+              <h3 className="text-2xl font-bold font-headline mb-4 text-foreground group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="text-[#5E7D9A] leading-relaxed font-medium">
+              <p className="text-foreground/60 leading-relaxed font-medium">
                 {service.desc}
               </p>
-              <div className="mt-8 pt-8 border-t border-slate-100 flex items-center gap-2 text-sm font-bold text-[#1B365D] opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="mt-8 pt-8 border-t border-primary/10 flex items-center gap-2 text-sm font-bold text-primary opacity-60 group-hover:opacity-100 transition-opacity">
                 আরও জানুন <Shield className="w-4 h-4" />
               </div>
             </div>
