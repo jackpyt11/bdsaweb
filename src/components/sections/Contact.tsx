@@ -72,7 +72,7 @@ export default function Contact() {
                   {card.icon}
                 </div>
                 
-                {/* Two-Line Title as per Image */}
+                {/* Two-Line Title */}
                 <h3 className="text-2xl font-black font-headline text-primary mb-6 flex flex-col items-center leading-tight tracking-tight drop-shadow-[0_0_10px_rgba(0,255,255,0.3)]">
                   {card.title.map((word, wIdx) => (
                     <span key={wIdx}>{word}</span>
@@ -85,8 +85,8 @@ export default function Contact() {
                     if (line.includes(':')) {
                       const [label, value] = line.split(':');
                       return (
-                        <p key={lIdx} className="text-sm font-medium leading-relaxed text-muted-foreground">
-                          {label}: <span className="text-primary drop-shadow-[0_0_8px_rgba(0,255,255,0.6)] font-black">{value}</span>
+                        <p key={lIdx} className="text-sm font-medium leading-relaxed text-white">
+                          <span className="opacity-80">{label}:</span> <span className="text-primary drop-shadow-[0_0_8px_rgba(0,255,255,0.6)] font-black">{value}</span>
                         </p>
                       );
                     }
