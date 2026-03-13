@@ -15,11 +15,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl shadow-sm">
-      <div className="container flex h-14 sm:h-16 items-center mx-auto px-2 sm:px-4">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-[#D4AF37] bg-[#1B365D] shadow-xl">
+      <div className="container flex h-16 sm:h-20 items-center mx-auto px-4">
         {/* Logo Section */}
-        <Link href="/" className="flex-shrink-0 mr-4">
-          <div className="relative w-24 h-10 sm:w-32 sm:h-12 transition-all">
+        <Link href="/" className="flex-shrink-0 mr-8">
+          <div className="relative w-32 h-12 sm:w-40 sm:h-16 transition-all">
             <Image
               src="https://res.cloudinary.com/dd3eekw7h/image/upload/v1773428346/Logo_-removebg-preview_qatfd0.png"
               alt="BDSA Logo"
@@ -30,13 +30,13 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Navigation */}
-        <nav className="flex-1 flex items-center justify-center gap-4 sm:gap-10 lg:gap-16 flex-nowrap whitespace-nowrap overflow-x-auto no-scrollbar py-1 px-4">
+        {/* Navigation - Filling the space */}
+        <nav className="flex-1 flex items-center justify-center gap-6 sm:gap-12 lg:gap-16 flex-nowrap whitespace-nowrap overflow-x-auto no-scrollbar py-1">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-[12px] sm:text-[14px] lg:text-[16px] font-bold text-muted-foreground hover:text-primary transition-all border-b-2 border-transparent hover:border-primary py-1"
+              className="text-[14px] sm:text-[16px] font-bold text-white/90 hover:text-[#D4AF37] transition-all border-b-2 border-transparent hover:border-[#D4AF37] py-1"
             >
               {item.name}
             </Link>
@@ -44,12 +44,12 @@ export default function Header() {
         </nav>
 
         {/* Action Button */}
-        <div className="flex-shrink-0 ml-4">
+        <div className="flex-shrink-0 ml-8">
           <Button 
             size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-black h-8 sm:h-9 px-3 sm:px-5 text-[11px] sm:text-[12px] rounded-lg shadow-md transition-all active:scale-95 whitespace-nowrap flex items-center"
+            className="bg-[#D4AF37] text-[#1B365D] hover:bg-[#D4AF37]/90 font-black h-9 sm:h-10 px-4 sm:px-6 text-[12px] sm:text-[13px] rounded-lg shadow-lg transition-all active:scale-95 whitespace-nowrap flex items-center border-none"
           >
-            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            <ShieldCheck className="w-4 h-4 mr-2" />
             <span>যাচাই করুন</span>
           </Button>
         </div>
