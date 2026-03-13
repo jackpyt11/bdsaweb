@@ -1,18 +1,28 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Footer() {
+  const logo = PlaceHolderImages.find(img => img.id === 'bdsa-logo');
+
   return (
     <footer className="bg-background border-t border-border pt-20 pb-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 border-2 border-primary rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold font-headline">B</span>
-              </div>
-              <h3 className="text-2xl font-bold font-headline">BDSA</h3>
-            </div>
+            <Link href="/" className="flex items-center mb-6">
+              {logo && (
+                <div className="relative w-48 h-12">
+                  <Image
+                    src={logo.imageUrl}
+                    alt={logo.description}
+                    fill
+                    className="object-contain object-left"
+                  />
+                </div>
+              )}
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
               The Bangladesh Digital Systems Authority is the statutory body responsible for the oversight and management of national digital ecosystems.
             </p>

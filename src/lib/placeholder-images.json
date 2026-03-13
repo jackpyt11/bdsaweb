@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "bdsa-logo",
+      "description": "BDSA Official Logo",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773428346/Logo_-removebg-preview_qatfd0.png",
+      "imageHint": "official logo"
+    },
+    {
       "id": "bd-flag",
       "description": "National Flag of Bangladesh",
       "imageUrl": "https://picsum.photos/seed/bdflag/40/24",
@@ -11,24 +17,6 @@
       "description": "Technological network background",
       "imageUrl": "https://picsum.photos/seed/tech/1920/1080",
       "imageHint": "technology network"
-    },
-    {
-      "id": "ceo-portrait",
-      "description": "Professional portrait of CEO",
-      "imageUrl": "https://picsum.photos/seed/ceo/400/500",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "leadership-2",
-      "description": "Leadership team member",
-      "imageUrl": "https://picsum.photos/seed/lead2/400/500",
-      "imageHint": "executive person"
-    },
-    {
-      "id": "leadership-3",
-      "description": "Leadership team member",
-      "imageUrl": "https://picsum.photos/seed/lead3/400/500",
-      "imageHint": "executive person"
     }
   ]
 }
