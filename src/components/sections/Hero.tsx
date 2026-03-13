@@ -18,6 +18,13 @@ export default function Hero() {
   const heroBg = PlaceHolderImages.find(img => img.id === 'hero-bg');
   const [userName, setUserName] = useState('');
 
+  const scrollToNotice = () => {
+    const section = document.getElementById('notice');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20 pb-24">
       {/* Background with Cyber Effect */}
@@ -104,10 +111,7 @@ export default function Hero() {
             size="lg" 
             variant="outline" 
             className="min-w-[200px] h-14 border-primary/30 text-white hover:bg-primary/5 hover:border-primary rounded-xl transition-all group"
-            onClick={() => {
-              const section = document.getElementById('notice');
-              if (section) section.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onClick={scrollToNotice}
           >
             <FileText className="mr-2 w-5 h-5" /> সর্বশেষ নোটিশ <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
