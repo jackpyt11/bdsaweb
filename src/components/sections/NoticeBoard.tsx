@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Bell, QrCode, ArrowUpRight, Printer, ShieldCheck } from 'lucide-react';
+import { Bell, QrCode, ArrowUpRight, Printer, ShieldCheck, AlertTriangle } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -12,21 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-
-interface NoticeDetail {
-  id: string;
-  title: string;
-  subtitle?: string;
-  date: string;
-  refNo: string;
-  contentTitle: string;
-  summary: string;
-  points: { title: string; desc: string }[];
-  instruction?: string;
-  footerLeft: string;
-  footerRightRole: string;
-  buttonText: string;
-}
+import { cn } from '@/lib/utils';
 
 const notices = [
   {
@@ -90,10 +76,89 @@ const notices = [
         { title: "২. অপরিবর্তনযোগ্য রেকর্ড:", desc: "ব্লকচেইন লেজারে তথ্য সংরক্ষিত থাকায় তা পরিবর্তন বা জালিয়াতি করা অসম্ভব।" },
         { title: "৩. ইনস্ট্যান্ট ভেরিফিকেশন:", desc: "কিউআর কোড বা প্রাইভেট কী-এর মাধ্যমে কয়েক সেকেন্ডে গ্লোবাল স্ট্যান্ডার্ড ভেরিফিকেশন।" }
       ],
-      instruction: "প্রাথমিক পর্যায়ে শুধুমাত্র ৫০০০ জন ভেরিফাইড ইউজারকে এই পাইলট প্রকল্পে অংশগ্রহণের সুযোগ দেওয়া হবে। পাইলট প্রকল্পের সময়কাল: ১ মার্চ ২০২৬ থেকে ৩০ জুন ২০২৬ পর্যন্ত।",
+      instruction: "প্রাথমিক পর্যায়ে শুধুমাত্র ৫০০০ জন ভেরিফাইড ইউজারকে এই পাইলট প্রকল্পে অংশগ্রহণের সুযোগ দেওয়া হবে। আগ্রহীদের নিচের 'রেজিস্ট্রেশন' বাটনের মাধ্যমে আবেদন করতে অনুরোধ করা হচ্ছে। পাইলট প্রকল্পের সময়কাল: ১ মার্চ ২০২৬ থেকে ৩০ জুন ২০২৬ পর্যন্ত।",
       footerLeft: "Blockchain Verified Seal",
       footerRightRole: "প্রধান প্রযুক্তি কর্মকর্তা (CTO), BDSA",
       buttonText: "পাইলট প্রকল্পে নিবন্ধন করুন"
+    }
+  },
+  {
+    id: "BDSA/SEC/ALERT/009",
+    title: "জরুরী সিকিউরিটি অ্যালার্ট - ফিশিং অ্যাটাক থেকে সতর্ক থাকুন",
+    date: "২০ ফেব্রুয়ারি, ২০২৬",
+    isNew: true,
+    isAlert: true,
+    details: {
+      refNo: "BDSA/SEC/ALERT/009",
+      date: "২০ ফেব্রুয়ারি, ২০২৬",
+      contentTitle: "বিজ্ঞপ্তি: জরুরী সিকিউরিটি অ্যালার্ট - ফিশিং অ্যাটাক থেকে সতর্ক থাকুন",
+      summary: "সম্প্রতি বিডিএসএ-র নাম ব্যবহার করে ভুয়া এসএমএস ও ইমেইল পাঠিয়ে নাগরিকদের ব্যক্তিগত তথ্য হাতিয়ে নেওয়ার চেষ্টা করা হচ্ছে।",
+      points: [
+        { title: "১. বিডিএসএ (BDSA) কখনোই আপনার পাসওয়ার্ড বা ওটিপি (OTP) ফোনে জানতে চায় না।", desc: "" },
+        { title: "২. শুধুমাত্র আমাদের অফিসিয়াল ডোমেইন www.bdsa.gov.bd দেখে তথ্য আদান-প্রদান করুন।", desc: "" },
+        { title: "৩. কোনো সন্দেহজনক লিংক বা আনভেরিফাইড থার্ড-পার্টি অ্যাপে আইডি নম্বর ইনপুট দেবেন না।", desc: "" }
+      ],
+      footerLeft: "Security Alert System",
+      footerRightRole: "সাইবার নিরাপত্তা বিভাগ, BDSA",
+      buttonText: "সন্দেহজনক লিংক রিপোর্ট করুন",
+      buttonVariant: "destructive"
+    }
+  },
+  {
+    id: "BDSA/EVENT/2026/012",
+    title: "জাতীয় ডিজিটাল সামিট ২০২৬-এর ডেলিগেট রেজিস্ট্রেশন",
+    date: "১৫ ফেব্রুয়ারি, ২০২৬",
+    isNew: false,
+    details: {
+      refNo: "BDSA/EVENT/2026/012",
+      date: "১৫ ফেব্রুয়ারি, ২০২৬",
+      contentTitle: "বিজ্ঞপ্তি: স্মার্ট বাংলাদেশ ডিজিটাল সামিট ২০২৬ - ডেলিগেট রেজিস্ট্রেশন",
+      summary: "আগামী ১০-১২ মে, বঙ্গবন্ধু আন্তর্জাতিক সম্মেলন কেন্দ্রে অনুষ্ঠিতব্য জাতীয় ডিজিটাল সামিটে অংশগ্রহণের জন্য অনলাইন রেজিস্ট্রেশন উন্মুক্ত করা হয়েছে।",
+      points: [
+        { title: "১. এআই এবং ফিউচার টেকনোলজি প্যানেল।", desc: "" },
+        { title: "২. সাইবার সিকিউরিটি ও সিস্টেম অডিটিং ওয়ার্কশপ।", desc: "" },
+        { title: "৩. ডিজিটাল ইনফ্রাস্ট্রাকচার নেটওয়ার্কিং সেশন।", desc: "" }
+      ],
+      instruction: "ডেলিগেট হিসেবে অংশগ্রহণের জন্য নিবন্ধনের শেষ সময়: ১৫ এপ্রিল, ২০২৬। আসন সংখ্যা সীমিত।",
+      footerLeft: "Event Management Wing",
+      footerRightRole: "জনসংযোগ বিভাগ, BDSA",
+      buttonText: "টিকিট বুক করুন"
+    }
+  },
+  {
+    id: "BDSA/MAINT/2026/033",
+    title: "কেন্দ্রীয় ভেরিফিকেশন সিস্টেম (CVS) রক্ষণাবেক্ষণ বিজ্ঞপ্তি",
+    date: "১২ মার্চ, ২০২৬",
+    isNew: false,
+    details: {
+      refNo: "BDSA/MAINT/2026/033",
+      date: "১২ মার্চ, ২০২৬",
+      contentTitle: "বিজ্ঞপ্তি: সিস্টেম আপগ্রেড ও নিয়মিত রক্ষণাবেক্ষণ সংক্রান্ত বিজ্ঞপ্তি",
+      summary: "সিস্টেমের গতি ও নিরাপত্তা আরও উন্নত করতে আগামী ১৫ মার্চ রাত ১২:০০ টা থেকে ভোর ৪:০০ টা পর্যন্ত কেন্দ্রীয় ভেরিফিকেশন সিস্টেমের (CVS) রক্ষণাবেক্ষণ কাজ চলবে।",
+      points: [
+        { title: "প্রভাব:", desc: "উক্ত সময়ে আইডি ভেরিফিকেশন পোর্টাল এবং অনলাইন ডাটাবেস সার্ভিস সাময়িকভাবে বন্ধ থাকবে। সাময়িক এই অসুবিধার জন্য আমরা আন্তরিকভাবে দুঃখিত।" }
+      ],
+      footerLeft: "Maintenance Status: Scheduled",
+      footerRightRole: "সিস্টেম অ্যাডমিনিস্ট্রেটর, BDSA",
+      buttonText: "আপডেট স্ট্যাটাস চেক করুন"
+    }
+  },
+  {
+    id: "BDSA/ID-CARD/2026/055",
+    title: "ডিজিটাল আইডি কার্ডে 'স্মার্ট চিপ' প্রযুক্তি সংযোজন",
+    date: "০৮ মার্চ, ২০২৬",
+    isNew: false,
+    details: {
+      refNo: "BDSA/ID-CARD/2026/055",
+      date: "০৮ মার্চ, ২০২৬",
+      contentTitle: "বিজ্ঞপ্তি: ই-আইডি কার্ডে নতুন সিকিউরিটি ফিচার ও স্মার্ট চিপ প্রযুক্তি প্রবর্তন",
+      summary: "উন্নত ডাটা প্রটেকশনের জন্য বিডিএসএ ইস্যুকৃত সকল ডিজিটাল আইডিতে এখন থেকে 'স্মার্ট চিপ' এবং 'হলোগ্রাফিক সিল' প্রযুক্তি ব্যবহার করা হবে।",
+      points: [
+        { title: "নির্দেশনা:", desc: "যাদের কাছে পুরোনো ভার্সনের ডিজিটাল আইডি রয়েছে, তারা আগামী ১ জুনের মধ্যে নিকটস্থ বিডিএসএ কেন্দ্র বা অনলাইন পোর্টাল থেকে আপনার আইডি কার্ডটি আপগ্রেড করার আবেদন করতে পারবেন।" }
+      ],
+      footerLeft: "Smart ID Initiative",
+      footerRightRole: "কার্ড ইস্যুয়িং অথরিটি, BDSA",
+      buttonText: "আইডি কার্ড আপগ্রেড আবেদন"
     }
   }
 ];
@@ -128,11 +193,20 @@ export default function NoticeBoard() {
               <DialogTrigger asChild>
                 <div 
                   onClick={() => setSelectedNotice(notice)}
-                  className="group flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-2xl border border-primary/10 bg-card/50 hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer shadow-lg"
+                  className={cn(
+                    "group flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-2xl border transition-all cursor-pointer shadow-lg",
+                    notice.isAlert 
+                      ? "border-destructive/30 bg-destructive/5 hover:border-destructive/60 hover:bg-destructive/10" 
+                      : "border-primary/10 bg-card/50 hover:border-primary/40 hover:bg-primary/5"
+                  )}
                 >
                   <div className="flex-1 space-y-2">
                     <div className="flex items-center gap-3">
-                      <h3 className="text-lg font-bold group-hover:text-primary transition-colors leading-tight">
+                      {notice.isAlert && <AlertTriangle className="w-5 h-5 text-destructive animate-pulse" />}
+                      <h3 className={cn(
+                        "text-lg font-bold transition-colors leading-tight",
+                        notice.isAlert ? "text-destructive" : "group-hover:text-primary"
+                      )}>
                         {notice.title}
                       </h3>
                       {notice.isNew && (
@@ -154,7 +228,12 @@ export default function NoticeBoard() {
                       </div>
                       <span className="text-[8px] text-muted-foreground font-bold uppercase">যাচাই করুন</span>
                     </div>
-                    <div className="p-2 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background transition-all">
+                    <div className={cn(
+                      "p-2 rounded-full transition-all",
+                      notice.isAlert 
+                        ? "bg-destructive/10 text-destructive group-hover:bg-destructive group-hover:text-white" 
+                        : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background"
+                    )}>
                       <ArrowUpRight className="w-5 h-5" />
                     </div>
                   </div>
@@ -201,7 +280,10 @@ export default function NoticeBoard() {
                       <div className="flex justify-end mb-8 text-sm font-bold">তারিখ: {selectedNotice.details.date}</div>
                       
                       <div className="text-center mb-10">
-                        <h3 className="text-xl md:text-2xl font-bold font-headline text-[#FFD700] underline underline-offset-8 print:text-black">
+                        <h3 className={cn(
+                          "text-xl md:text-2xl font-bold font-headline underline underline-offset-8 print:text-black",
+                          selectedNotice.isAlert ? "text-red-500" : "text-[#FFD700]"
+                        )}>
                           {selectedNotice.details.contentTitle}
                         </h3>
                       </div>
@@ -234,7 +316,13 @@ export default function NoticeBoard() {
                       </div>
 
                       <div className="print:hidden">
-                        <Button className="bg-[#D4AF37] text-black font-bold px-8 py-6 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:scale-105 transition-all animate-pulse">
+                        <Button 
+                          variant={selectedNotice.details.buttonVariant === 'destructive' ? 'destructive' : 'default'}
+                          className={cn(
+                            "font-bold px-8 py-6 rounded-xl transition-all animate-pulse shadow-lg",
+                            selectedNotice.details.buttonVariant !== 'destructive' && "bg-[#D4AF37] text-black hover:scale-105"
+                          )}
+                        >
                           {selectedNotice.details.buttonText}
                         </Button>
                       </div>
@@ -255,4 +343,3 @@ export default function NoticeBoard() {
     </section>
   );
 }
-
