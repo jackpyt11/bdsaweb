@@ -37,14 +37,14 @@ export default function Stats() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, idx) => (
-            <div key={idx} className="relative p-8 rounded-2xl bg-white border-l-4 border-[#D4AF37] shadow-lg shadow-navy-900/5 hover:shadow-xl transition-all duration-300 group">
-              <div className="mb-4 w-12 h-12 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+            <div key={idx} className="relative p-8 rounded-2xl bg-white border-l-4 border-[#1B365D] shadow-[0_10px_40px_-15px_rgba(27,54,93,0.1)] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="mb-4 w-12 h-12 rounded-full bg-[#1B365D]/5 flex items-center justify-center text-[#1B365D] group-hover:bg-[#1B365D] group-hover:text-white transition-colors">
                 {stat.icon}
               </div>
               <div className="text-4xl font-bold font-headline text-[#1B365D] mb-1">
                 {counts[idx].toLocaleString()}{stat.suffix}
               </div>
-              <p className="text-sm font-semibold text-[#5E7D9A] uppercase tracking-wider">{stat.label}</p>
+              <p className="text-xs font-bold text-[#5E7D9A] uppercase tracking-widest">{stat.label}</p>
             </div>
           ))}
         </div>

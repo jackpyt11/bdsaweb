@@ -10,19 +10,19 @@
     --card-foreground: 216 55% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 216 55% 15%;
-    --primary: 46 65% 52%; /* #D4AF37 - Golden */
+    --primary: 216 55% 24%; /* #1B365D - Navy Blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 216 55% 24%; /* #1B365D - Navy Blue */
+    --secondary: 212 55% 37%; /* #2A5A8F - Action Blue */
     --secondary-foreground: 0 0% 100%;
     --muted: 210 20% 96%;
     --muted-foreground: 216 20% 40%; /* #5E7D9A - Slate Blue */
-    --accent: 46 65% 52%;
+    --accent: 212 55% 37%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 77% 57%;
     --destructive-foreground: 0 0% 98%;
     --border: 216 20% 90%;
     --input: 216 20% 90%;
-    --ring: 46 65% 52%;
+    --ring: 216 55% 24%;
     --radius: 1rem;
   }
 }
