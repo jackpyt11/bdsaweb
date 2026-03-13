@@ -1,0 +1,162 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * CORE PHILOSOPHY
+     * This ruleset enforces a strict user-ownership model for personal data and a role-based administrative 
+     * model for public content. It prioritizes "Authorization Independence," ensuring that most access 
+     * decisions are made based on the request path or internal document data without requiring 
+     * multi-document lookups (get() calls), except for administrative authorization.
+     *
+     * DATA STRUCTURE
+     * - /users/{userId}/profile: Private, user-specific profile data.
+     * - /roles_admin/{userId}: Administrative role definitions.
+     * - /notices, /newsArticles, /faqs, etc.: Publicly readable system-wide content.
+     * - /verifiedCredentials: Publicly verifiable IDs and certificates.
+     *
+     * KEY SECURITY DECISIONS
+     * 1. Path-Based Ownership: User profiles are strictly locked to the Firebase Auth UID via the path.
+     * 2. Administrative DBAC: System-wide content updates are restricted to users whose UIDs 
+     *    exist in the '/roles_admin' collection.
+     * 3. Public Readability: Information meant for general consumption (News, FAQs, etc.) is 
+     *    world-readable to allow for high-performance listing and anonymous access.
+     * 4. Relational Integrity: On profile creation, the internal 'id' field must match the path's userId.
+     */
+
+    // --- Helper Functions ---
+
+    /** @description Checks if the user is authenticated with Firebase Auth. */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /** @description Checks if the authenticated user's UID matches the provided userId. */
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    /** @description Verifies if a user has administrative privileges via the roles_admin collection. */
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+    }
+
+    /** @description Combines ownership and existence check for updates and deletes. */
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+
+    // --- Collection Rules ---
+
+    /**
+     * @description Rules for individual user profile data.
+     * @path /users/{userId}/profile
+     * @allow (get, update) if the user is the owner of the UID in the path.
+     * @deny (get) if the UID in the path does not match the requester's auth UID.
+     * @principle Path-based ownership and relational integrity via ID validation.
+     */
+    match /users/{userId}/profile {
+      allow get, list: if isOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Publicly readable official certificates and credentials for verification.
+     * @path /verifiedCredentials/{credentialId}
+     * @allow (get, list) for any user, including anonymous.
+     * @deny (create, update, delete) if the user is not a verified administrator.
+     * @principle Public consumption with admin-only data management.
+     */
+    match /verifiedCredentials/{credentialId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /**
+     * @description Official announcements for the interactive notice board.
+     * @path /notices/{noticeId}
+     * @allow (get, list) for all users.
+     * @deny (write) for non-admin users.
+     * @principle Structural segregation of public notices from private user data.
+     */
+    match /notices/{noticeId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /**
+     * @description Numerical statistics highlighting organizational achievements.
+     * @path /achievementStats/{statId}
+     * @allow (get, list) for all users.
+     * @deny (write) for non-admin users.
+     * @principle World-readable statistics with controlled updates.
+     */
+    match /achievementStats/{statId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /**
+     * @description Professional profiles of organization leadership.
+     * @path /teamMembers/{memberId}
+     * @allow (get, list) for all users.
+     * @deny (write) for non-admin users.
+     * @principle Consistent public access for organizational transparency.
+     */
+    match /teamMembers/{memberId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /**
+     * @description Help center content (Frequently Asked Questions).
+     * @path /faqs/{faqId}
+     * @allow (get, list) for all users.
+     * @deny (write) for non-admin users.
+     * @principle Open read access for user support and system documentation.
+     */
+    match /faqs/{faqId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /**
+     * @description Latest news, updates, and insights.
+     * @path /newsArticles/{articleId}
+     * @allow (get, list) for all users.
+     * @deny (write) for non-admin users.
+     * @principle Public insight distribution with administrative control.
+     */
+    match /newsArticles/{articleId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /**
+     * @description General organizational configuration and legal information.
+     * @path /organizationInfo/BDSA_Config
+     * @allow (get) for all users to view organization details.
+     * @deny (write) for non-admin users.
+     * @principle Single-document configuration locking for core metadata.
+     */
+    match /organizationInfo/BDSA_Config {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /**
+     * @description Administrative role definitions used for Database Access Control (DBAC).
+     * @path /roles_admin/{userId}
+     * @allow (get) if the user is authenticated (to check their own status) or is an admin.
+     * @deny (write) for all users via client SDK; admin roles should be managed via console/Functions.
+     * @principle Secure role lookup for administrative authorization decisions.
+     */
+    match /roles_admin/{userId} {
+      allow get: if isSignedIn();
+      allow list: if isAdmin();
+      allow create, update, delete: if false; 
+    }
+  }
+}

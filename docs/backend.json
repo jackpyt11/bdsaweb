@@ -1,0 +1,563 @@
+{
+  "entities": {
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a registered user or agent within the Digital Authority Hub, allowing access to personal dashboard, work history, and current status.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the UserProfile entity."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the user, used for communication.",
+          "format": "email"
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the user or agent."
+        },
+        "officialIdNumber": {
+          "type": "string",
+          "description": "The primary official ID number associated with this user, which might be verifiable via the public system. (Relationship: UserProfile 1:1 VerifiedCredential, or 1:N if a user has multiple verifiable IDs)"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current operational status of the user profile (e.g., 'Active', 'Pending', 'Suspended')."
+        },
+        "registrationDate": {
+          "type": "string",
+          "description": "The date and time when the user profile was registered.",
+          "format": "date-time"
+        },
+        "lastLoginDate": {
+          "type": "string",
+          "description": "The date and time of the user's last login.",
+          "format": "date-time"
+        },
+        "workHistory": {
+          "type": "array",
+          "description": "A list of strings describing the user's past work or activity history within the system.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "profileImageUrl": {
+          "type": "string",
+          "description": "URL to the user's profile picture.",
+          "format": "uri"
+        },
+        "contactNumber": {
+          "type": "string",
+          "description": "A contact phone number for the user."
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "name",
+        "officialIdNumber",
+        "status",
+        "registrationDate"
+      ]
+    },
+    "VerifiedCredential": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "VerifiedCredential",
+      "type": "object",
+      "description": "Represents an official certificate or ID that can be publicly verified through the system.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the VerifiedCredential entity, typically the ID number users will input for verification."
+        },
+        "credentialType": {
+          "type": "string",
+          "description": "The type of credential being verified (e.g., 'Certificate', 'Official ID', 'Member ID')."
+        },
+        "issueDate": {
+          "type": "string",
+          "description": "The date when the credential was issued.",
+          "format": "date"
+        },
+        "expirationDate": {
+          "type": "string",
+          "description": "The date when the credential is set to expire, if applicable.",
+          "format": "date"
+        },
+        "holderName": {
+          "type": "string",
+          "description": "The name of the person or entity to whom the credential belongs."
+        },
+        "status": {
+          "type": "string",
+          "description": "The current verification status of the credential (e.g., 'Verified', 'Expired', 'Revoked')."
+        },
+        "associatedUserId": {
+          "type": "string",
+          "description": "Reference to the UserProfile entity if this credential belongs to a registered user. (Relationship: UserProfile 1:N VerifiedCredential)"
+        }
+      },
+      "required": [
+        "id",
+        "credentialType",
+        "issueDate",
+        "holderName",
+        "status"
+      ]
+    },
+    "Notice": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Notice",
+      "type": "object",
+      "description": "Stores official announcements displayed on the interactive notice board.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Notice entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the official announcement."
+        },
+        "content": {
+          "type": "string",
+          "description": "The full content of the announcement."
+        },
+        "referenceNumber": {
+          "type": "string",
+          "description": "The official reference number for the notice."
+        },
+        "publishDate": {
+          "type": "string",
+          "description": "The date and time when the notice was officially published.",
+          "format": "date-time"
+        },
+        "qrCodeData": {
+          "type": "string",
+          "description": "Data string used to generate the QR code for authenticity verification (e.g., a URL or unique ID)."
+        },
+        "isNew": {
+          "type": "boolean",
+          "description": "A flag indicating if the notice should be marked as 'New' on the UI, typically for a period after publication."
+        },
+        "attachmentUrl": {
+          "type": "string",
+          "description": "URL to an optional downloadable attachment related to the notice.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "content",
+        "referenceNumber",
+        "publishDate",
+        "qrCodeData",
+        "isNew"
+      ]
+    },
+    "AchievementStat": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "AchievementStat",
+      "type": "object",
+      "description": "Stores numerical statistics to highlight the organization's achievements and impact.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the AchievementStat entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name or title of the achievement statistic (e.g., 'Verified Members', 'System Security')."
+        },
+        "value": {
+          "type": "number",
+          "description": "The numerical value of the statistic."
+        },
+        "unit": {
+          "type": "string",
+          "description": "The unit or suffix for the statistic (e.g., '+', '%')."
+        },
+        "description": {
+          "type": "string",
+          "description": "A short descriptive text providing context for the statistic."
+        },
+        "displayOrder": {
+          "type": "number",
+          "description": "A numerical value to determine the display order of the statistic on the UI."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "value"
+      ]
+    },
+    "TeamMember": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TeamMember",
+      "type": "object",
+      "description": "Stores information about key individuals in the organization's leadership team.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the TeamMember entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the team member."
+        },
+        "title": {
+          "type": "string",
+          "description": "The official position or designation of the team member."
+        },
+        "bio": {
+          "type": "string",
+          "description": "A short biography or description of the team member's role and background."
+        },
+        "profileImageUrl": {
+          "type": "string",
+          "description": "URL to the professional portrait image of the team member.",
+          "format": "uri"
+        },
+        "eSealImageUrl": {
+          "type": "string",
+          "description": "URL to the image of the team member's official e-seal.",
+          "format": "uri"
+        },
+        "displayOrder": {
+          "type": "number",
+          "description": "A numerical value to determine the display order of the team member on the UI."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "title",
+        "profileImageUrl"
+      ]
+    },
+    "FAQ": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "FAQ",
+      "type": "object",
+      "description": "Stores frequently asked questions and their corresponding answers.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the FAQ entity."
+        },
+        "question": {
+          "type": "string",
+          "description": "The question asked by users."
+        },
+        "answer": {
+          "type": "string",
+          "description": "The official answer to the question."
+        },
+        "displayOrder": {
+          "type": "number",
+          "description": "A numerical value to determine the display order of the FAQ on the UI."
+        }
+      },
+      "required": [
+        "id",
+        "question",
+        "answer"
+      ]
+    },
+    "NewsArticle": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "NewsArticle",
+      "type": "object",
+      "description": "Stores news updates and insights for the 'Latest News & Insights' section.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the NewsArticle entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the news article or insight."
+        },
+        "summary": {
+          "type": "string",
+          "description": "A concise summary of the news article, potentially generated by an AI tool."
+        },
+        "content": {
+          "type": "string",
+          "description": "The full content of the news article."
+        },
+        "publishDate": {
+          "type": "string",
+          "description": "The date and time when the news article was published.",
+          "format": "date-time"
+        },
+        "author": {
+          "type": "string",
+          "description": "The author of the news article."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL to an image associated with the news article.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "summary",
+        "content",
+        "publishDate"
+      ]
+    },
+    "OrganizationInfo": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "OrganizationInfo",
+      "type": "object",
+      "description": "Stores general, overarching information about the BDSA organization, including legal badges, contact details, mission, and vision. This entity is expected to have a single record.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the OrganizationInfo entity (e.g., 'BDSA_Config')."
+        },
+        "organizationName": {
+          "type": "string",
+          "description": "The full official name of the organization."
+        },
+        "mission": {
+          "type": "string",
+          "description": "The organization's mission statement."
+        },
+        "vision": {
+          "type": "string",
+          "description": "The organization's vision statement."
+        },
+        "values": {
+          "type": "array",
+          "description": "A list of core values of the organization.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fullAddress": {
+          "type": "string",
+          "description": "The full physical address of the organization's office."
+        },
+        "contactEmail": {
+          "type": "string",
+          "description": "The official contact email address for the organization.",
+          "format": "email"
+        },
+        "contactPhoneNumber": {
+          "type": "string",
+          "description": "The official contact phone number for the organization (e.g., helpline)."
+        },
+        "googleMapsEmbedUrl": {
+          "type": "string",
+          "description": "The URL for embedding an interactive Google Map displaying the office location.",
+          "format": "uri"
+        },
+        "tradeLicenseNumber": {
+          "type": "string",
+          "description": "The organization's trade license number."
+        },
+        "tinNumber": {
+          "type": "string",
+          "description": "The organization's Taxpayer Identification Number (TIN)."
+        },
+        "govtRegistrationStatus": {
+          "type": "string",
+          "description": "The government registration status or number of the organization."
+        },
+        "copyrightText": {
+          "type": "string",
+          "description": "The copyright information displayed in the footer."
+        },
+        "managedByText": {
+          "type": "string",
+          "description": "Text indicating who manages the website, as displayed in the footer."
+        },
+        "officialWebsiteUrl": {
+          "type": "string",
+          "description": "The official website URL of the organization.",
+          "format": "uri"
+        },
+        "logoUrl": {
+          "type": "string",
+          "description": "URL to the organization's official logo.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "organizationName",
+        "mission",
+        "vision",
+        "values",
+        "fullAddress",
+        "contactEmail",
+        "contactPhoneNumber",
+        "tradeLicenseNumber",
+        "tinNumber",
+        "govtRegistrationStatus",
+        "copyrightText",
+        "managedByText",
+        "officialWebsiteUrl",
+        "logoUrl"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}/profile",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores individual user profile data. Access is strictly path-based, meaning only the authenticated user matching '{userId}' can read or write their own profile. This ensures private data segregation and authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique Firebase Authentication UID of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/verifiedCredentials/{credentialId}",
+        "definition": {
+          "entityName": "VerifiedCredential",
+          "schema": {
+            "$ref": "#/backend/entities/VerifiedCredential"
+          },
+          "description": "Stores official certificates or IDs that can be publicly verified. Documents are publicly readable for verification purposes, and only administrators can create or modify them. This collection supports efficient 'list' queries for public verification.",
+          "params": [
+            {
+              "name": "credentialId",
+              "description": "The unique identifier for the verified credential."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/notices/{noticeId}",
+        "definition": {
+          "entityName": "Notice",
+          "schema": {
+            "$ref": "#/backend/entities/Notice"
+          },
+          "description": "Stores official announcements for the interactive notice board. These documents are publicly readable, enabling efficient 'list' queries for all users, and only administrators can create or modify them.",
+          "params": [
+            {
+              "name": "noticeId",
+              "description": "The unique identifier for the notice."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/achievementStats/{statId}",
+        "definition": {
+          "entityName": "AchievementStat",
+          "schema": {
+            "$ref": "#/backend/entities/AchievementStat"
+          },
+          "description": "Stores numerical statistics highlighting organizational achievements. Documents are publicly readable, allowing for efficient 'list' queries, and only administrators can create or modify them.",
+          "params": [
+            {
+              "name": "statId",
+              "description": "The unique identifier for the achievement statistic."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/teamMembers/{memberId}",
+        "definition": {
+          "entityName": "TeamMember",
+          "schema": {
+            "$ref": "#/backend/entities/TeamMember"
+          },
+          "description": "Stores information about key individuals in the organization's leadership team. Documents are publicly readable, supporting efficient 'list' queries, and only administrators can create or modify them.",
+          "params": [
+            {
+              "name": "memberId",
+              "description": "The unique identifier for the team member."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/faqs/{faqId}",
+        "definition": {
+          "entityName": "FAQ",
+          "schema": {
+            "$ref": "#/backend/entities/FAQ"
+          },
+          "description": "Stores frequently asked questions and their answers. Documents are publicly readable, facilitating efficient 'list' queries, and only administrators can create or modify them.",
+          "params": [
+            {
+              "name": "faqId",
+              "description": "The unique identifier for the FAQ entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/newsArticles/{articleId}",
+        "definition": {
+          "entityName": "NewsArticle",
+          "schema": {
+            "$ref": "#/backend/entities/NewsArticle"
+          },
+          "description": "Stores news updates and insights. Documents are publicly readable, supporting efficient 'list' queries, and only administrators can create or modify them.",
+          "params": [
+            {
+              "name": "articleId",
+              "description": "The unique identifier for the news article."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/organizationInfo/BDSA_Config",
+        "definition": {
+          "entityName": "OrganizationInfo",
+          "schema": {
+            "$ref": "#/backend/entities/OrganizationInfo"
+          },
+          "description": "Stores a single document containing general, overarching information about the organization (e.g., legal badges, contact details, mission, vision). This document is publicly readable, and only administrators can modify it."
+        }
+      },
+      {
+        "path": "/roles_admin/{userId}",
+        "definition": {
+          "entityName": "AdminRole",
+          "schema": {
+            "$ref": "#/backend/entities/AdminRole"
+          },
+          "description": "This collection defines administrative roles. The existence of a document at '/roles_admin/$(request.auth.uid)' grants administrative privileges, embodying a Database Access Control (DBAC) approach. This ensures authorization independence for content management actions.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique Firebase Authentication UID of the user with administrative privileges."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed with a strong emphasis on authorization independence, security, scalability, and debuggability, aligning with the core design principles and strategy mandates.\n\nAuthorization Independence (CRITICAL):\n1.  Private User Data: The '/users/{userId}/profile' path ensures that each user's profile is directly tied to their Firebase Authentication UID. Security rules will simply check 'request.auth.uid == userId' for read/write access, eliminating the need for 'get()' calls to parent documents or external data. This makes user-specific operations atomic and rules straightforward to debug.\n2.  Public Content: Collections such as '/notices', '/achievementStats', '/teamMembers', '/faqs', '/newsArticles', '/organizationInfo', and '/verifiedCredentials' are designed for public read access. Their authorization for reading is inherent to being public, thus requiring no complex 'get()' calls within security rules to determine read permissions.\n3.  Administrative Roles: The '/roles_admin/{userId}' collection serves as a denormalized, explicit record of administrative status. Authorization for administrative actions (e.g., modifying public content) will rely on verifying the existence of a document at '/roles_admin/$(request.auth.uid)'. This approach avoids 'get()' calls on other documents to ascertain a user's role, ensuring authorization independence for content management operations.\n\nQAPs (Rules are not Filters):\n1.  Homogeneous Security Posture: All collections intended for public consumption ('/notices', '/achievementStats', '/teamMembers', '/faqs', '/newsArticles', '/organizationInfo', '/verifiedCredentials') maintain a consistent \"publicly readable\" security posture. This structural segregation guarantees that 'list' operations (queries) on these collections will retrieve all matching documents without requiring security rules to filter the results. This makes queries efficient and inherently secure by design.\n2.  Path-Based Ownership: For '/users/{userId}/profile', ownership is explicitly defined by the path. Any 'get' request for a profile document must match 'request.auth.uid == userId'. This ensures that unauthorized 'list' operations across all user profiles are implicitly prevented, as rules would enforce specific ownership, thereby upholding the 'rules are not filters' principle by preventing over-fetching and client-side filtering."
+  }
+}
