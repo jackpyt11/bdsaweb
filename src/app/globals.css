@@ -1,52 +1,39 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 213 56% 98%;
-    --foreground: 213 56% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 213 56% 10%;
+    --background: 0 0% 100%;
+    --foreground: 216 55% 15%; /* Dark Navy for text contrast */
+    --card: 210 20% 98%; /* #F8F9FA - Light Grey */
+    --card-foreground: 216 55% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 213 56% 10%;
-    --primary: 212 54% 37%; /* #2A5A8F - Light Grayish Blue */
-    --primary-foreground: 0 0% 100%; /* #FFFFFF */
-    --secondary: 209 25% 49%; /* #5E7D9A - Light Blue/Slate */
+    --popover-foreground: 216 55% 15%;
+    --primary: 46 65% 52%; /* #D4AF37 - Golden for buttons/icons */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 55% 24%; /* #1B365D - Navy for Header/Footer */
     --secondary-foreground: 0 0% 100%;
-    --muted: 209 25% 95%;
-    --muted-foreground: 209 25% 40%;
-    --accent: 46 65% 52%; /* #D4AF37 - Golden */
+    --muted: 210 20% 96%;
+    --muted-foreground: 216 20% 40%;
+    --accent: 46 65% 52%; /* Golden */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 77% 57%; /* #E53E3E - Danger Red */
+    --destructive: 0 77% 57%; /* Danger Red */
     --destructive-foreground: 0 0% 98%;
-    --border: 209 25% 49%; /* #5E7D9A */
-    --input: 209 25% 49%;
-    --ring: 212 54% 37%;
+    --border: 216 20% 90%;
+    --input: 216 20% 90%;
+    --ring: 46 65% 52%;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 213 56% 10%; /* Very dark Navy derived from #1E4069 */
+    /* Keeping dark variables consistent but defaults to light mode as requested */
+    --background: 216 55% 10%;
     --foreground: 0 0% 100%;
-    --card: 213 56% 15%; /* #1E4069 Deep Navy */
+    --card: 216 55% 15%;
     --card-foreground: 0 0% 100%;
-    --popover: 213 56% 12%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 212 54% 37%; /* #2A5A8F */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 209 25% 49%; /* #5E7D9A */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 213 56% 18%;
-    --muted-foreground: 209 25% 70%;
-    --accent: 46 65% 52%; /* #D4AF37 */
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 77% 57%; /* #E53E3E */
-    --destructive-foreground: 0 0% 98%;
-    --border: 209 25% 49%; /* #5E7D9A */
-    --input: 209 25% 49%;
-    --ring: 46 65% 52%;
+    --primary: 46 65% 52%;
+    --secondary: 216 55% 24%;
   }
 }
 
@@ -58,7 +45,7 @@
     @apply bg-background text-foreground font-body;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline;
+    @apply font-headline text-[#1B365D];
   }
 }
 
@@ -69,4 +56,12 @@
 
 .animate-blink {
   animation: blink 1s step-end infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

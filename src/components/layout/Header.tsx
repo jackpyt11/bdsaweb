@@ -4,11 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ShieldCheck } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Header() {
-  const logo = PlaceHolderImages.find(img => img.id === 'bdsa-logo');
-
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '#about' },
@@ -18,44 +15,42 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#1E4069] text-white">
-      <div className="container flex h-16 sm:h-20 items-center justify-between mx-auto px-2 sm:px-4 gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-[#D4AF37] bg-[#1B365D] text-white">
+      <div className="container flex h-14 sm:h-16 items-center justify-between mx-auto px-2 sm:px-4 gap-2">
         {/* Logo Section */}
         <Link href="/" className="flex-shrink-0">
-          {logo && (
-            <div className="relative w-24 h-6 sm:w-40 sm:h-10 transition-all">
-              <Image
-                src={logo.imageUrl}
-                alt={logo.description}
-                fill
-                className="object-contain object-left"
-                priority
-              />
-            </div>
-          )}
+          <div className="relative w-20 h-10 sm:w-28 sm:h-12 transition-all">
+            <Image
+              src="https://res.cloudinary.com/dd3eekw7h/image/upload/v1773428346/Logo_-removebg-preview_qatfd0.png"
+              alt="BDSA Logo"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </div>
         </Link>
 
         {/* Navigation - Always Visible in 1 Line */}
-        <nav className="flex items-center gap-2 sm:gap-4 md:gap-6 flex-nowrap whitespace-nowrap overflow-x-auto no-scrollbar">
+        <nav className="flex items-center gap-3 sm:gap-6 flex-nowrap whitespace-nowrap overflow-x-auto no-scrollbar py-1">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-[10px] sm:text-[13px] font-medium text-slate-200 hover:text-accent transition-all"
+              className="text-[11px] sm:text-[13px] font-semibold text-slate-100 hover:text-[#D4AF37] transition-all"
             >
               {item.name}
             </Link>
           ))}
         </nav>
 
-        {/* Action Button - Always Visible */}
+        {/* Action Button - Always Visible and Small */}
         <div className="flex-shrink-0">
           <Button 
             size="sm"
-            className="bg-[#2A5A8F] hover:bg-[#2A5A8F]/80 text-white font-bold border border-white/20 h-7 sm:h-9 px-2 sm:px-4 text-[9px] sm:text-[11px] rounded-full shadow-lg transition-all active:scale-95 whitespace-nowrap flex items-center"
+            className="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white font-bold h-7 sm:h-8 px-2 sm:px-4 text-[10px] sm:text-[11px] rounded-md shadow-md transition-all active:scale-95 whitespace-nowrap flex items-center"
           >
             <ShieldCheck className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-            <span className="inline">Verify</span>
+            <span>Verify</span>
           </Button>
         </div>
       </div>
