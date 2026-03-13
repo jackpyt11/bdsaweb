@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className="font-body antialiased min-h-screen">
         {children}
         {/* Start of Tawk.to Script */}
-        <Script id="tawk-to" strategy="lazyOnload">
+        <Script id="tawk-to" strategy="afterInteractive">
           {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
