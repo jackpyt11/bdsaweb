@@ -23,6 +23,24 @@
       "description": "Technological network background",
       "imageUrl": "https://picsum.photos/seed/tech/1920/1080",
       "imageHint": "technology network"
+    },
+    {
+      "id": "leader-ceo",
+      "description": "Dr. Ahmed Rahman - CEO",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773437089/dr_qc3rvt.png",
+      "imageHint": "CEO portrait"
+    },
+    {
+      "id": "leader-security",
+      "description": "Sara Choudhury - Security Head",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773436990/SARA_CHOUDHURY_bhygly.png",
+      "imageHint": "Security Head portrait"
+    },
+    {
+      "id": "leader-ops",
+      "description": "Lt. Col S. Mahmud - Operations",
+      "imageUrl": "https://res.cloudinary.com/dd3eekw7h/image/upload/v1773436995/LT_CORNELMAHABUB_nwcta2.png",
+      "imageHint": "Operations Strategist portrait"
     }
   ]
 }
