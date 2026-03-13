@@ -12,26 +12,28 @@ import FAQ from '@/components/sections/FAQ';
 import News from '@/components/sections/News';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer';
-import EmergencyDirectory from '@/components/sections/EmergencyDirectory';
+import ChatSupport from '@/components/sections/ChatSupport';
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       <TopBar />
       <Header />
-      <Hero />
-      <Badges />
-      <Stats />
-      <VerificationPortal />
-      <Services />
-      <NoticeBoard />
-      <MissionVision />
-      <Leadership />
-      <News />
-      <FAQ />
-      <EmergencyDirectory />
-      <Contact />
+      <div className="w-full max-w-[1280px] mx-auto px-5">
+        <Hero />
+        <Badges />
+        <Stats />
+        <VerificationPortal />
+        <Services />
+        <NoticeBoard />
+        <MissionVision />
+        <Leadership />
+        <News />
+        <FAQ />
+        <Contact />
+      </div>
       <Footer />
+      <ChatSupport />
     </main>
   );
 }
