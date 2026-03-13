@@ -26,8 +26,14 @@ export default function Hero() {
           সরকারি অনুমোদিত সংস্থা
         </div>
         
-        <h1 className="mx-auto max-w-3xl text-3xl font-extrabold tracking-tight font-headline text-[#1B365D] sm:text-5xl mb-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out fill-mode-both">
-          বাংলাদেশে <span className="text-[#2A5A8F] italic underline decoration-slate-200 underline-offset-8">ডিজিটাল অবকাঠামোর</span> ভবিষ্যৎ নির্মাণ
+        {/* Updated Headline with Font Mixing, Tight Spacing and Shadow */}
+        <h1 className="mx-auto max-w-3xl text-3xl sm:text-5xl mb-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out fill-mode-both leading-[1.1] sm:leading-[1.15] tracking-tight">
+          <span className="block font-medium text-[#5E7D9A]">
+            বাংলাদেশে ডিজিটাল
+          </span>
+          <span className="block font-black text-[#1B365D] drop-shadow-[0_2px_2px_rgba(0,0,0,0.05)]">
+            অবকাঠামোর ভবিষ্যৎ নির্মাণ
+          </span>
         </h1>
         
         <p className="mx-auto max-w-2xl text-base sm:text-lg text-[#5E7D9A] mb-10 leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-10 delay-200 duration-1000 fill-mode-both">
