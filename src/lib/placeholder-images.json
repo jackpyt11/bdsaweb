@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "bd-flag",
+      "description": "National Flag of Bangladesh",
+      "imageUrl": "https://picsum.photos/seed/bdflag/40/24",
+      "imageHint": "Bangladesh flag"
+    },
+    {
+      "id": "hero-bg",
+      "description": "Technological network background",
+      "imageUrl": "https://picsum.photos/seed/tech/1920/1080",
+      "imageHint": "technology network"
+    },
+    {
+      "id": "ceo-portrait",
+      "description": "Professional portrait of CEO",
+      "imageUrl": "https://picsum.photos/seed/ceo/400/500",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "leadership-2",
+      "description": "Leadership team member",
+      "imageUrl": "https://picsum.photos/seed/lead2/400/500",
+      "imageHint": "executive person"
+    },
+    {
+      "id": "leadership-3",
+      "description": "Leadership team member",
+      "imageUrl": "https://picsum.photos/seed/lead3/400/500",
+      "imageHint": "executive person"
+    }
+  ]
 }
