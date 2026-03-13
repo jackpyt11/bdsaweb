@@ -1,13 +1,26 @@
 'use client';
 
-import { Shield, Cpu, Cloud, Database, Fingerprint, Network } from 'lucide-react';
+import { 
+  Shield, 
+  Cpu, 
+  Cloud, 
+  Database, 
+  Fingerprint, 
+  Network, 
+  Lock, 
+  Zap, 
+  FileCheck, 
+  ArrowLeftRight, 
+  Server, 
+  CheckCircle2 
+} from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const services = [
   {
     icon: <Fingerprint className="w-10 h-10 text-primary" />,
-    title: "ডিজিটাল আইডি ফ্রেমওয়ার্ক",
-    desc: "উন্নত বায়োমেট্রিক এবং এনক্রিপশন প্রযুক্তির মাধ্যমে নিরাপদ জাতীয় পরিচয় নিশ্চিতকরণ।"
+    title: "ডিজিটাল আইডি ফ্রেমওয়ার্ক",
+    desc: "উন্নত বায়োমেট্রিক এবং এনক্রিপশন প্রযুক্তির মাধ্যমে নিরাপদ জাতীয় পরিচয় নিশ্চিতকরণ।"
   },
   {
     icon: <Network className="w-10 h-10 text-primary" />,
@@ -27,12 +40,42 @@ const services = [
   {
     icon: <Cloud className="w-10 h-10 text-primary" />,
     title: "ই-গভর্নেন্স ক্লাউড",
-    desc: "সব নাগরিক পরিষেবা এক জায়গায় নিয়ে আসার জন্য উচ্চ-ক্ষমতাসম্পন্ন ক্লাউড প্ল্যাটফর্ম।"
+    desc: "সব নাগরিক পরিষেবা এক জায়গায় নিয়ে আসার জন্য উচ্চ-ক্ষমতাসম্পন্ন ক্লাউড প্ল্যাটফর্ম।"
   },
   {
     icon: <Shield className="w-10 h-10 text-primary" />,
     title: "সাইবার সিকিউরিটি অডিট",
-    desc: "জাতীয় পর্যায়ের ডিজিটাল সম্পদ সুরক্ষায় ২৪/৭ সিকিউরিটি মনিটরিং এবং থ্রেট অ্যানালাইসিস।"
+    desc: "জাতীয় পর্যায়ের ডিজিটাল সম্পদ সুরক্ষায় ২৪/৭ সিকিউরিটি মনিটরিং এবং থ্রেট অ্যানালাইসিস।"
+  },
+  {
+    icon: <Lock className="w-10 h-10 text-primary" />,
+    title: "ডিসেন্ট্রালাইজড আইডেন্টিটি প্রোটোকল (DID)",
+    desc: "ব্যবহারকারীদের ব্যক্তিগত তথ্যের ওপর তাদের পূর্ণ নিয়ন্ত্রণ নিশ্চিত করতে অত্যাধুনিক ডিসেন্ট্রালাইজড স্টোরেজ ব্যবস্থা।"
+  },
+  {
+    icon: <Zap className="w-10 h-10 text-primary" />,
+    title: "রিয়েল-টাইম থ্রেট ইন্টেলিজেন্স",
+    desc: "জাতীয় সাইবার স্পেসে যেকোনো সন্দেহজনক কার্যকলাপ সেকেন্ডের মধ্যে শনাক্ত এবং প্রতিহত করার উন্নত ব্যবস্থা।"
+  },
+  {
+    icon: <FileCheck className="w-10 h-10 text-primary" />,
+    title: "কন্টিনিউয়াস কমপ্লায়েন্স মনিটরিং",
+    desc: "প্রতিটি সিস্টেম যেন আন্তর্জাতিক নিরাপত্তা মানদণ্ড (ISO/GDPR) মেনে চলে, তা নিশ্চিত করতে স্বয়ংক্রিয় অডিটিং।"
+  },
+  {
+    icon: <ArrowLeftRight className="w-10 h-10 text-primary" />,
+    title: "ইন্টার-অপারেবল পেমেন্ট ব্রিজ",
+    desc: "সরকারি ফি বা ডিজিটাল লেনদেনকে আরও সহজ করতে বিভিন্ন গেটওয়ের মধ্যে একটি সুরক্ষিত এবং দ্রুত সংযোগ ব্যবস্থা।"
+  },
+  {
+    icon: <Server className="w-10 h-10 text-primary" />,
+    title: "ক্লাউড-নেটিভ সিকিউরিটি আর্কিটেকচার",
+    desc: "ভবিষ্যতের বিশাল ট্রাফিক সামলাতে সক্ষম এমন একটি স্কেলেবল এবং হ্যাকার-প্রুফ ক্লাউড অবকাঠামো।"
+  },
+  {
+    icon: <CheckCircle2 className="w-10 h-10 text-primary" />,
+    title: "অটোমেটেড ভেরিফিকেশন ইঞ্জিন",
+    desc: "মানুষের হস্তক্ষেপ ছাড়াই এআই (AI) এর মাধ্যমে যেকোনো ডকুমেন্ট বা আইডি কয়েক সেকেন্ডে যাচাই করার ক্ষমতা।"
   }
 ];
 
@@ -45,7 +88,7 @@ export default function Services() {
       <div className="container relative z-10 mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium font-headline text-white mb-4">
-            আমাদের <span className="font-black text-primary drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">পরিষেবাসমূহ</span>
+            BDSA ডিজিটাল ইকোসিস্টেম ও <span className="font-black text-primary drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">সেবাসমূহ</span>
           </h2>
           <div className="h-1 w-24 bg-primary mx-auto rounded-full shadow-[0_0_10px_#00FFFF]"></div>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg">
