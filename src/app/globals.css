@@ -91,3 +91,17 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Tawk.to Widget Resizing */
+iframe[title="chat widget"] {
+  transform: scale(0.9) !important;
+  transform-origin: bottom right !important;
+  max-height: 80vh !important;
+  max-width: 350px !important;
+}
+
+@media (max-width: 768px) {
+  iframe[title="chat widget"] {
+    transform: scale(0.8) !important;
+  }
+}
