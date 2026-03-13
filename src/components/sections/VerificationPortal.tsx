@@ -13,6 +13,7 @@ export default function VerificationPortal() {
     if (!query) return;
     setStatus('loading');
     
+    // Simulating database check
     setTimeout(() => {
       if (query.length >= 8) {
         setStatus('success');
@@ -33,8 +34,8 @@ export default function VerificationPortal() {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/30">
               <ShieldCheck className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-3xl font-bold font-headline mb-2 text-white">আইডি যাচাইকরণ পোর্টাল</h2>
-            <p className="text-muted-foreground text-sm max-w-xs mx-auto">পেশাদার পরিচয়পত্র এবং অফিশিয়াল সার্টিফিকেট যাচাই করতে জাতীয় ডেটাবেস অ্যাক্সেস করুন।</p>
+            <h2 className="text-3xl font-bold font-headline mb-2 text-white">আইটি প্রফেশনাল লাইসেন্স যাচাই</h2>
+            <p className="text-muted-foreground text-sm max-w-xs mx-auto">ডেভেলপার বা সাইবার সিকিউরিটি স্পেশালিস্টদের জন্য BDSA থেকে দেওয়া স্পেশাল লাইসেন্স যাচাই।</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -42,7 +43,7 @@ export default function VerificationPortal() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary/50" />
               <Input 
                 className="pl-10 h-12 bg-background/50 border-primary/20 focus:border-primary transition-all rounded-xl text-white placeholder:text-muted-foreground"
-                placeholder="ভেরিফিকেশন আইডি দিন..."
+                placeholder="লাইসেন্স আইডি দিন..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -60,8 +61,8 @@ export default function VerificationPortal() {
             <div className="flex items-center gap-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 animate-in fade-in slide-in-from-top-4">
               <CheckCircle className="w-6 h-6 shrink-0" />
               <div>
-                <h4 className="text-sm font-bold">যাচাই সফল হয়েছে</h4>
-                <p className="text-xs opacity-80">রেকর্ড আমাদের রেজিস্ট্রির সাথে মিলেছে।</p>
+                <h4 className="text-sm font-bold">ভেরিফিকেশন সফল হয়েছে</h4>
+                <p className="text-xs opacity-80">এই আইটি প্রফেশনাল লাইসেন্সটি আমাদের রেজিস্ট্রিতে বৈধ।</p>
               </div>
             </div>
           )}
@@ -70,8 +71,8 @@ export default function VerificationPortal() {
             <div className="flex items-center gap-4 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 animate-in fade-in slide-in-from-top-4">
               <XCircle className="w-6 h-6 shrink-0" />
               <div>
-                <h4 className="text-sm font-bold">রেকর্ড পাওয়া যায়নি</h4>
-                <p className="text-xs opacity-80">দয়া করে আইডি চেক করে আবার চেষ্টা করুন।</p>
+                <h4 className="text-sm font-bold">লাইসেন্স পাওয়া যায়নি</h4>
+                <p className="text-xs opacity-80">দয়া করে সঠিক আইডি নম্বর দিয়ে আবার চেষ্টা করুন।</p>
               </div>
             </div>
           )}
