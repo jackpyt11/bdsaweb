@@ -43,6 +43,27 @@
   }
 }
 
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #notice-printable-area, #notice-printable-area * {
+    visibility: visible;
+  }
+  #notice-printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: white !important;
+    color: black !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+}
+
 .animate-blink {
   animation: blink 1.5s infinite;
 }
